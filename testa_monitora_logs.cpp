@@ -459,6 +459,37 @@ TEST(LOG_LerArquivosMonitoradosTest, T20_ArquivoInexistente) {
         << "Arquivo inexistente deve retornar lista vazia";
 }
 
+// ===========================================================================
+// TESTES — LOG_LerArquivoLog
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 21: Leitura de arquivo de log com registros válidos
+// Objetivo: Verifica que todos os registros são lidos e parseados.
+// Passa quando: vetor tem tamanho correto e campos corretos
+// ---------------------------------------------------------------------------
+TEST(LOG_LerArquivoLogTest, T21_ArquivoComRegistros) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 22: Arquivo de log inexistente
+// Objetivo: Verifica retorno seguro para arquivo inexistente.
+// Passa quando: retorna vetor vazio
+// ---------------------------------------------------------------------------
+TEST(LOG_LerArquivoLogTest, T22_ArquivoInexistente) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 23: Arquivo de log com linhas mistas (válidas e inválidas)
+// Objetivo: Verifica que linhas malformadas são ignoradas.
+// Passa quando: apenas registros válidos são retornados
+// ---------------------------------------------------------------------------
+TEST(LOG_LerArquivoLogTest, T23_ArquivoComLinhasMistas) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
