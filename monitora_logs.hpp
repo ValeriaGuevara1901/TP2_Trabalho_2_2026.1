@@ -93,5 +93,19 @@ std::vector<std::string> LOG_LerArquivosMonitorados(
  ***************************************************************************/
 std::string LOG_ObterNomeArquivoTotal(const std::string& caminhoLog);
 
+/***************************************************************************
+ * Função: LOG_CompararRegistros
+ * Descrição
+ *   Compara dois registros de log pela data/hora.
+ * Parâmetros
+ *   a - primeiro registro
+ *   b - segundo registro
+ * Valor retornado
+ *   < 0 se a < b (a é mais antigo)
+ *   = 0 se a == b (mesma data/hora)
+ *   > 0 se a > b (a é mais recente)
+ ***************************************************************************/
+int LOG_CompararRegistros(const RegistroLog& a, const RegistroLog& b);
+
 
 #endif  // MONITORA_LOGS_HPP_

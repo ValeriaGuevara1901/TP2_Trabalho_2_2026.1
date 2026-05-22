@@ -151,3 +151,22 @@ std::string LOG_ObterNomeArquivoTotal(const std::string& caminhoLog) {
         return diretorio + "total_" + nomeArquivo;
     }
 }
+
+// ---------------------------------------------------------------------------
+// LOG_CompararRegistros
+// ---------------------------------------------------------------------------
+
+int LOG_CompararRegistros(const RegistroLog& a, const RegistroLog& b) {
+    // Compara ano
+    if (a.ano != b.ano) return a.ano - b.ano;
+    // Compara mês
+    if (a.mes != b.mes) return a.mes - b.mes;
+    // Compara dia
+    if (a.dia != b.dia) return a.dia - b.dia;
+    // Compara hora
+    if (a.hora != b.hora) return a.hora - b.hora;
+    // Compara minuto
+    if (a.minuto != b.minuto) return a.minuto - b.minuto;
+    // Compara segundo
+    return a.segundo - b.segundo;
+}
