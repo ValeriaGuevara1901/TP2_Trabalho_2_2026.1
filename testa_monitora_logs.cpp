@@ -147,6 +147,16 @@ TEST(BCD_ConverterLongASCIITest, T3_NumeroNegativoTruncado) {
         << "String truncada deve ter no máximo dimASCII-1 caracteres";
 }
 
+// ---------------------------------------------------------------------------
+// TESTE 4 (T4): Número positivo com dimASCII insuficiente (truncagem)
+// Objetivo: Verifica truncagem para número positivo longo.
+// Tabela de Decisão: Coluna T4 (Numero<0=N, dimASCII insuficiente=N)
+// Passa quando: string resultante tem tamanho <= dimASCII-1 e sem '-'
+// ---------------------------------------------------------------------------
+TEST(BCD_ConverterLongASCIITest, T4_NumeroPositivoTruncado) {
+//teste 4 falhando
+}
+
 
 // ===========================================================================
 // main
