@@ -264,7 +264,15 @@ TEST(LOG_ParseLinhaTest, T8_DataInvalida) {
 // Passa quando: nome do arquivo resultante começa com "total_"
 // ---------------------------------------------------------------------------
 TEST(LOG_ObterNomeArquivoTotalTest, T9_CaminhoComBarra) {
-    // TODO: implementar teste
+    std::string resultado = LOG_ObterNomeArquivoTotal("c:\\logs\\log1.txt");
+
+    // Verifica RE3: contém "total_"
+    std::regex re3(".*total_.*");
+    EXPECT_TRUE(std::regex_match(resultado, re3))
+        << "Resultado deve conter 'total_': " << resultado;
+
+    EXPECT_EQ(resultado, "c:\\logs\\total_log1.txt")
+        << "Caminho total deve ter 'total_' prefixado no nome do arquivo";
 }
 
 // ---------------------------------------------------------------------------
@@ -273,7 +281,10 @@ TEST(LOG_ObterNomeArquivoTotalTest, T9_CaminhoComBarra) {
 // Passa quando: resultado correto com prefixo "total_"
 // ---------------------------------------------------------------------------
 TEST(LOG_ObterNomeArquivoTotalTest, T10_CaminhoComBarraNormal) {
-    // TODO: implementar teste
+    std::string resultado = LOG_ObterNomeArquivoTotal("logs/log2.txt");
+
+    EXPECT_EQ(resultado, "logs/total_log2.txt")
+        << "Deve funcionar com separador '/'";
 }
 
 // ---------------------------------------------------------------------------
@@ -282,7 +293,10 @@ TEST(LOG_ObterNomeArquivoTotalTest, T10_CaminhoComBarraNormal) {
 // Passa quando: resultado é "total_nomearquivo"
 // ---------------------------------------------------------------------------
 TEST(LOG_ObterNomeArquivoTotalTest, T11_SemDiretorio) {
-    // TODO: implementar teste
+    std::string resultado = LOG_ObterNomeArquivoTotal("meulog.txt");
+
+    EXPECT_EQ(resultado, "total_meulog.txt")
+        << "Sem diretório, deve retornar 'total_meulog.txt'";
 }
 
 // ---------------------------------------------------------------------------
@@ -291,7 +305,9 @@ TEST(LOG_ObterNomeArquivoTotalTest, T11_SemDiretorio) {
 // Passa quando: retorna "total_x" para entrada "x"
 // ---------------------------------------------------------------------------
 TEST(LOG_ObterNomeArquivoTotalTest, T12_CaminhoMinimo) {
-    // TODO: implementar teste
+    std::string resultado = LOG_ObterNomeArquivoTotal("x");
+    EXPECT_EQ(resultado, "total_x")
+        << "Arquivo de nome mínimo deve gerar 'total_x'";
 }
 
 
