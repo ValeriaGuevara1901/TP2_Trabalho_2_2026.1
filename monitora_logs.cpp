@@ -68,5 +68,53 @@ std::vector<std::string> LOG_LerArquivosMonitorados(
 // ---------------------------------------------------------------------------
 
 bool LOG_ParseLinha(const std::string& linha, RegistroLog* registro) {
-//funcao 7 sem nada
+    // Assertivas de entrada
+    assert(registro != NULL);
+    assert(!linha.empty());
+
+    if (registro == NULL || linha.empty()) {
+        return false;
+    }
+
+    // Formato esperado: "DD/MM/AAAA HH:MM:SS mensagem"
+    // Expressão regular equivalente: ^(\d{1,2})\/(\d{1,2})\/(\d{4}) (\d{2}):(\d{2}):(\d{2}) (.+)$
+    int dia, mes, ano, hora, minuto, segundo;
+    char mensagem[MAX_MSG_LOG];
+    memset(mensagem, 0, sizeof(mensagem));
+
+    int lidos = sscanf(linha.c_str(),  // NOLINT
+                       "%d/%d/%d %d:%d:%d %100[^\n]",
+                       &dia, &mes, &ano,
+                       &hora, &minuto, &segundo,
+                       mensagem);
+
+    if (lidos < 6) {
+        return false;
+    }
+
+    // Validação dos campos de data/hora
+    if (dia < 1 || dia > 31) return false;
+    if (mes < 1 || mes > 12) return false;
+    if (ano < 1900 || ano > 9999) return false;
+    if (hora < 0 || hora > 23) return false;
+    if (minuto < 0 || minuto > 59) return false;
+    if (segundo < 0 || segundo > 59) return false;
+
+    registro->dia     = dia;
+    registro->mes     = mes;
+    registro->ano     = ano;
+    registro->hora    = hora;
+    registro->minuto  = minuto;
+    registro->segundo = segundo;
+    strncpy(registro->mensagem, mensagem, MAX_MSG_LOG - 1);
+    registro->mensagem[MAX_MSG_LOG - 1] = '\0';
+
+    // Assertivas de saída
+    assert(registro->dia >= 1 && registro->dia <= 31);
+    assert(registro->mes >= 1 && registro->mes <= 12);
+    assert(registro->hora >= 0 && registro->hora <= 23);
+    assert(registro->minuto >= 0 && registro->minuto <= 59);
+    assert(registro->segundo >= 0 && registro->segundo <= 59);
+
+    return true;
 }
