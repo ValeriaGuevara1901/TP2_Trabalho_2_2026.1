@@ -107,5 +107,20 @@ std::string LOG_ObterNomeArquivoTotal(const std::string& caminhoLog);
  ***************************************************************************/
 int LOG_CompararRegistros(const RegistroLog& a, const RegistroLog& b);
 
+/***************************************************************************
+ * Função: LOG_MergeOrdenado
+ * Descrição
+ *   Combina dois vetores de registros de log em um único vetor ordenado
+ *   cronologicamente.
+ * Parâmetros
+ *   base  - vetor com registros existentes (pode ser vazio)
+ *   novos - vetor com novos registros a adicionar (pode ser vazio)
+ * Valor retornado
+ *   Vetor com todos os registros ordenados por data/hora
+ ***************************************************************************/
+std::vector<RegistroLog> LOG_MergeOrdenado(
+    const std::vector<RegistroLog>& base,
+    const std::vector<RegistroLog>& novos);
+
 
 #endif  // MONITORA_LOGS_HPP_

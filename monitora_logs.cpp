@@ -170,3 +170,26 @@ int LOG_CompararRegistros(const RegistroLog& a, const RegistroLog& b) {
     // Compara segundo
     return a.segundo - b.segundo;
 }
+
+// ---------------------------------------------------------------------------
+// LOG_MergeOrdenado
+// ---------------------------------------------------------------------------
+
+std::vector<RegistroLog> LOG_MergeOrdenado(
+    const std::vector<RegistroLog>& base,
+    const std::vector<RegistroLog>& novos) {
+
+    // Combina os dois vetores
+    std::vector<RegistroLog> resultado;
+    resultado.reserve(base.size() + novos.size());
+    resultado.insert(resultado.end(), base.begin(), base.end());
+    resultado.insert(resultado.end(), novos.begin(), novos.end());
+
+    // Ordena por data/hora usando LOG_CompararRegistros
+    std::sort(resultado.begin(), resultado.end(),
+        [](const RegistroLog& a, const RegistroLog& b) {
+            return LOG_CompararRegistros(a, b) < 0;
+        });
+
+    return resultado;
+}
