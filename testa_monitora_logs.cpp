@@ -689,6 +689,29 @@ TEST(LOG_ProcessarArquivoTest, T30_MergeComTerceiroArquivo) {
     RemoverArquivo(logB); RemoverArquivo(totalB);
 }
 
+// ===========================================================================
+// TESTES — LOG_MonitorarLogs (integração completa)
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 28: Monitoramento completo com logs.txt válido
+// Objetivo: Verifica o fluxo completo: ler lista, processar cada arquivo,
+//           gerar arquivos total_.
+// Passa quando: retorna número de arquivos processados com sucesso
+// ---------------------------------------------------------------------------
+TEST(LOG_MonitorarLogsTest, T28_MonitoramentoCompleto) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 29: Monitoramento com logs.txt inexistente
+// Objetivo: Verifica retorno -1 quando o arquivo de configuração não existe.
+// Passa quando: retorna -1
+// ---------------------------------------------------------------------------
+TEST(LOG_MonitorarLogsTest, T29_ConfigInexistente) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
