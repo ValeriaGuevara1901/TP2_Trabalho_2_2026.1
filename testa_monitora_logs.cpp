@@ -133,7 +133,18 @@ TEST(BCD_ConverterLongASCIITest, T2_NumeroPositivoSuficiente) {
 // Passa quando: string truncada tem tamanho = dimASCII-1 e começa com '-'
 // ---------------------------------------------------------------------------
 TEST(BCD_ConverterLongASCIITest, T3_NumeroNegativoTruncado) {
-// testes 3 falhando
+    char buffer[5];  // comporta no máximo 4 chars + '\0'
+    char* resultado = BCD_ConverterLongASCII(5, buffer, -123456789L);
+
+    ASSERT_NE(resultado, nullptr)
+        << "Retorno não deve ser nulo mesmo com truncagem";
+
+    EXPECT_EQ(resultado[0], '-')
+        << "Mesmo truncado, primeiro char deve ser '-'";
+
+    int tamanho = static_cast<int>(strlen(resultado));
+    EXPECT_LE(tamanho, 4)
+        << "String truncada deve ter no máximo dimASCII-1 caracteres";
 }
 
 
