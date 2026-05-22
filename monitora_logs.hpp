@@ -79,5 +79,19 @@ char* BCD_ConverterLongASCII(int dimASCII,
 std::vector<std::string> LOG_LerArquivosMonitorados(
     const std::string& caminhoArquivosLogs);
 
+/***************************************************************************
+ * Função: LOG_ObterNomeArquivoTotal
+ * Descrição
+ *   Dado o caminho de um arquivo de log, retorna o caminho do arquivo
+ *   total correspondente, prefixando "total_" ao nome do arquivo.
+ * Parâmetros
+ *   caminhoLog - caminho do arquivo de log original
+ * Valor retornado
+ *   Caminho do arquivo total (ex: "logs/total_log1.txt")
+ * Assertiva de entrada
+ *   caminhoLog não vazio
+ ***************************************************************************/
+std::string LOG_ObterNomeArquivoTotal(const std::string& caminhoLog);
+
 
 #endif  // MONITORA_LOGS_HPP_

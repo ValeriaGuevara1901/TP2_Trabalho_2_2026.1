@@ -118,3 +118,36 @@ bool LOG_ParseLinha(const std::string& linha, RegistroLog* registro) {
 
     return true;
 }
+
+// ---------------------------------------------------------------------------
+// LOG_ObterNomeArquivoTotal
+// ---------------------------------------------------------------------------
+
+std::string LOG_ObterNomeArquivoTotal(const std::string& caminhoLog) {
+    // Assertiva de entrada
+    assert(!caminhoLog.empty());
+
+    // Encontra a última barra (Windows ou Unix)
+    size_t posBarraWin = caminhoLog.rfind('\\');
+    size_t posBarraUnix = caminhoLog.rfind('/');
+
+    size_t posBarra = std::string::npos;
+    if (posBarraWin != std::string::npos && posBarraUnix != std::string::npos) {
+        posBarra = std::max(posBarraWin, posBarraUnix);
+    } else if (posBarraWin != std::string::npos) {
+        posBarra = posBarraWin;
+    } else if (posBarraUnix != std::string::npos) {
+        posBarra = posBarraUnix;
+    }
+
+    // Prefixa "total_" ao nome do arquivo
+    if (posBarra == std::string::npos) {
+        // Sem diretório, só o nome do arquivo
+        return "total_" + caminhoLog;
+    } else {
+        // Com diretório
+        std::string diretorio = caminhoLog.substr(0, posBarra + 1);
+        std::string nomeArquivo = caminhoLog.substr(posBarra + 1);
+        return diretorio + "total_" + nomeArquivo;
+    }
+}
