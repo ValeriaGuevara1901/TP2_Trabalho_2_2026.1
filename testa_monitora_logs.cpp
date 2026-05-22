@@ -469,7 +469,19 @@ TEST(LOG_LerArquivosMonitoradosTest, T20_ArquivoInexistente) {
 // Passa quando: vetor tem tamanho correto e campos corretos
 // ---------------------------------------------------------------------------
 TEST(LOG_LerArquivoLogTest, T21_ArquivoComRegistros) {
-    // TODO: implementar teste
+    const std::string caminho = "test_log1.txt";
+    CriarArquivoTemp(caminho,
+        "16/1/2026 13:27:46 Registro um\n"
+        "20/1/2026 17:45:38 Registro dois\n");
+
+    auto registros = LOG_LerArquivoLog(caminho);
+
+    ASSERT_EQ(registros.size(), 2u)
+        << "Deve ler 2 registros do arquivo";
+    EXPECT_EQ(registros[0].dia, 16);
+    EXPECT_EQ(registros[1].dia, 20);
+
+    RemoverArquivo(caminho);
 }
 
 // ---------------------------------------------------------------------------
@@ -478,7 +490,10 @@ TEST(LOG_LerArquivoLogTest, T21_ArquivoComRegistros) {
 // Passa quando: retorna vetor vazio
 // ---------------------------------------------------------------------------
 TEST(LOG_LerArquivoLogTest, T22_ArquivoInexistente) {
-    // TODO: implementar teste
+    auto registros = LOG_LerArquivoLog("log_inexistente_xyz.txt");
+
+    EXPECT_TRUE(registros.empty())
+        << "Arquivo inexistente deve retornar vetor vazio";
 }
 
 // ---------------------------------------------------------------------------
@@ -487,7 +502,18 @@ TEST(LOG_LerArquivoLogTest, T22_ArquivoInexistente) {
 // Passa quando: apenas registros válidos são retornados
 // ---------------------------------------------------------------------------
 TEST(LOG_LerArquivoLogTest, T23_ArquivoComLinhasMistas) {
-    // TODO: implementar teste
+    const std::string caminho = "test_log_misto.txt";
+    CriarArquivoTemp(caminho,
+        "16/1/2026 13:27:46 Registro valido\n"
+        "isso nao e um log\n"
+        "20/1/2026 17:45:38 Outro valido\n");
+
+    auto registros = LOG_LerArquivoLog(caminho);
+
+    EXPECT_EQ(registros.size(), 2u)
+        << "Linhas inválidas devem ser ignoradas";
+
+    RemoverArquivo(caminho);
 }
 
 
