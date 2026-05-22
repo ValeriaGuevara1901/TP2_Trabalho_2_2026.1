@@ -149,5 +149,17 @@ std::vector<RegistroLog> LOG_LerArquivoLog(const std::string& caminhoLog);
 bool LOG_EscreverArquivoLog(const std::string& caminhoLog,
                             const std::vector<RegistroLog>& registros);
 
+/***************************************************************************
+ * Função: LOG_ProcessarArquivo
+ * Descrição
+ *   Processa um arquivo de log: lê os registros, faz merge com o arquivo
+ *   total_ existente (se houver) e escreve o resultado ordenado.
+ * Parâmetros
+ *   caminhoLog - caminho do arquivo de log a processar
+ * Valor retornado
+ *   true se o processamento foi bem-sucedido, false caso contrário
+ ***************************************************************************/
+bool LOG_ProcessarArquivo(const std::string& caminhoLog);
+
 
 #endif  // MONITORA_LOGS_HPP_

@@ -242,3 +242,32 @@ bool LOG_EscreverArquivoLog(const std::string& caminhoLog,
     arquivo.close();
     return true;
 }
+
+// ---------------------------------------------------------------------------
+// LOG_ProcessarArquivo
+// ---------------------------------------------------------------------------
+
+bool LOG_ProcessarArquivo(const std::string& caminhoLog) {
+    // Lê os registros do arquivo de log
+    auto novosRegistros = LOG_LerArquivoLog(caminhoLog);
+    if (novosRegistros.empty()) {
+        // Arquivo não existe ou está vazio
+        std::ifstream teste(caminhoLog);
+        if (!teste.is_open()) {
+            return false;  // Arquivo não existe
+        }
+        teste.close();
+    }
+
+    // Obtém o caminho do arquivo total
+    std::string caminhoTotal = LOG_ObterNomeArquivoTotal(caminhoLog);
+
+    // Lê os registros existentes do arquivo total (se existir)
+    auto registrosExistentes = LOG_LerArquivoLog(caminhoTotal);
+
+    // Faz merge dos registros
+    auto resultado = LOG_MergeOrdenado(registrosExistentes, novosRegistros);
+
+    // Escreve o resultado no arquivo total
+    return LOG_EscreverArquivoLog(caminhoTotal, resultado);
+}
