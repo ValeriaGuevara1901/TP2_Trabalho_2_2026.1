@@ -167,6 +167,16 @@ TEST(BCD_ConverterLongASCIITest, T4_NumeroPositivoTruncado) {
         << "Deve estar truncado a no máximo 3 caracteres";
 }
 
+// ---------------------------------------------------------------------------
+// TESTE 5 (T5): Zero como entrada
+// Objetivo: Verifica que o número zero é convertido corretamente para "0".
+// Tabela de Decisão: caso especial (zero não é positivo nem negativo)
+// Passa quando: resultado == "0"
+// ---------------------------------------------------------------------------
+TEST(BCD_ConverterLongASCIITest, T5_Zero) {
+ //Teste 5 falhando
+}
+
 
 // ===========================================================================
 // main
