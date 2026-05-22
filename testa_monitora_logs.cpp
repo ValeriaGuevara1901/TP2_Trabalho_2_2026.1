@@ -174,7 +174,14 @@ TEST(BCD_ConverterLongASCIITest, T4_NumeroPositivoTruncado) {
 // Passa quando: resultado == "0"
 // ---------------------------------------------------------------------------
 TEST(BCD_ConverterLongASCIITest, T5_Zero) {
- //Teste 5 falhando
+    char buffer[10];
+    char* resultado = BCD_ConverterLongASCII(10, buffer, 0L);
+
+    ASSERT_NE(resultado, nullptr);
+    EXPECT_STREQ(resultado, "0")
+        << "Zero deve ser convertido para '0'";
+    EXPECT_NE(resultado[0], '-')
+        << "Zero não deve iniciar com '-'";
 }
 
 
