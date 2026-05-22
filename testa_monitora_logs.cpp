@@ -154,7 +154,17 @@ TEST(BCD_ConverterLongASCIITest, T3_NumeroNegativoTruncado) {
 // Passa quando: string resultante tem tamanho <= dimASCII-1 e sem '-'
 // ---------------------------------------------------------------------------
 TEST(BCD_ConverterLongASCIITest, T4_NumeroPositivoTruncado) {
-//teste 4 falhando
+    char buffer[4];  // máximo 3 chars + '\0'
+    char* resultado = BCD_ConverterLongASCII(4, buffer, 987654321L);
+
+    ASSERT_NE(resultado, nullptr);
+
+    EXPECT_NE(resultado[0], '-')
+        << "Número positivo não inicia com '-'";
+
+    int tamanho = static_cast<int>(strlen(resultado));
+    EXPECT_LE(tamanho, 3)
+        << "Deve estar truncado a no máximo 3 caracteres";
 }
 
 
