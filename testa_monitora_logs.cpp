@@ -107,8 +107,24 @@ TEST(BCD_ConverterLongASCIITest, T1_NumeroNegativoSuficiente) {
 // Passa quando: resultado é string de dígitos sem '-'
 // ---------------------------------------------------------------------------
 TEST(BCD_ConverterLongASCIITest, T2_NumeroPositivoSuficiente) {
-// testes 2 falhando
+    char buffer[20];
+    char* resultado = BCD_ConverterLongASCII(20, buffer, 98765L);
+
+    ASSERT_NE(resultado, nullptr)
+        << "Retorno não deve ser nulo para entrada válida";
+
+    EXPECT_NE(resultado[0], '-')
+        << "Número positivo não deve ter '-' como primeiro caractere";
+
+    // Verifica contra expressão regular RE1 positivo: ^\d+$
+    std::regex re("^[0-9]+$");
+    EXPECT_TRUE(std::regex_match(std::string(resultado), re))
+        << "Resultado deve casar com RE1 positivo (^\\d+$): " << resultado;
+
+    EXPECT_STREQ(resultado, "98765")
+        << "Valor convertido deve ser '98765'";
 }
+
 
 // ===========================================================================
 // main
