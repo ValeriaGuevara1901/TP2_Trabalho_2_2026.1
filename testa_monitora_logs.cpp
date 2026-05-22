@@ -125,6 +125,17 @@ TEST(BCD_ConverterLongASCIITest, T2_NumeroPositivoSuficiente) {
         << "Valor convertido deve ser '98765'";
 }
 
+// ---------------------------------------------------------------------------
+// TESTE 3 (T3): Número negativo com dimASCII insuficiente (truncagem)
+// Objetivo: Verifica que a string é truncada à direita quando dimASCII
+//           não comporta o número completo, mas '-' ainda aparece.
+// Tabela de Decisão: Coluna T3 (Numero<0=S, dimASCII insuficiente=N)
+// Passa quando: string truncada tem tamanho = dimASCII-1 e começa com '-'
+// ---------------------------------------------------------------------------
+TEST(BCD_ConverterLongASCIITest, T3_NumeroNegativoTruncado) {
+// testes 3 falhando
+}
+
 
 // ===========================================================================
 // main
