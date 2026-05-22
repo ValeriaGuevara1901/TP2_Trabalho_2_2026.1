@@ -219,6 +219,15 @@ TEST(LOG_ParseLinhaTest, T6_LinhaFormatoValido) {
         << "Mensagem deve ser copiada corretamente";
 }
 
+// ---------------------------------------------------------------------------
+// TESTE 7 (T7): Linha com formato inválido
+// Objetivo: Verifica que linha malformada retorna false.
+// Tabela de Decisão: Coluna T7 (Linha formato válido=N)
+// Passa quando: retorna false e estrutura não é preenchida com lixo perigoso
+// ---------------------------------------------------------------------------
+TEST(LOG_ParseLinhaTest, T7_LinhaFormatoInvalido) {
+    // TODO: implementar teste
+}
 
 
 // ===========================================================================
