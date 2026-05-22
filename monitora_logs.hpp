@@ -1,0 +1,67 @@
+/**
+ * @file monitora_logs.hpp
+ * @brief Sistema de Monitoramento de Logs - Cabeçalho
+ * @details Define as estruturas e protótipos de funções para o sistema
+ *          de monitoramento e merge de arquivos de log ordenados por data/hora.
+ *
+ * Disciplina: Técnicas de Programação 2 – CIC0198 – UnB
+ * @author Estudante UnB
+ * @date 2026
+ */
+
+#ifndef MONITORA_LOGS_HPP_
+#define MONITORA_LOGS_HPP_
+
+#include <string>
+#include <vector>
+
+/// Tamanho máximo da mensagem de log (sem data/hora)
+#define MAX_MSG_LOG 101
+/// Tamanho máximo de uma linha completa de log (data + hora + mensagem)
+#define MAX_LINHA_LOG 200
+/// Tamanho máximo do caminho de arquivo
+#define MAX_PATH_LOG 512
+
+/**
+ * @brief Estrutura que representa um registro de log.
+ *
+ * Cada registro contém data, hora e a mensagem de log.
+ */
+struct RegistroLog {
+    int dia;               /**< Dia do registro (1-31) */
+    int mes;               /**< Mês do registro (1-12) */
+    int ano;               /**< Ano do registro (ex: 2026) */
+    int hora;              /**< Hora do registro (0-23) */
+    int minuto;            /**< Minuto do registro (0-59) */
+    int segundo;           /**< Segundo do registro (0-59) */
+    char mensagem[MAX_MSG_LOG]; /**< Mensagem de log */
+};
+
+/***************************************************************************
+ * Função: BCD_ConverterLongASCII
+ * Descrição
+ *   Converte um inteiro long para um string ASCII.
+ *   O string resultado estará alinhado à esquerda no buffer de dimASCII
+ *   caracteres fornecido.
+ * Parâmetros
+ *   dimASCII  - número máximo de caracteres do string inclusive
+ *               o caractere zero terminal.
+ *   pNumASCII - ponteiro para o espaço que receberá o string.
+ *               Será truncado à direita caso o string convertido
+ *               exceda a dimensão limite. O primeiro caractere
+ *               será '-' se e somente se número < 0.
+ *   Numero    - inteiro a ser convertido para string.
+ * Valor retornado
+ *   Retorna pNumASCII com o número convertido, ou NULL se pNumASCII==NULL
+ *   ou dimASCII < 2.
+ * Assertiva de entrada
+ *   pNumASCII != NULL
+ *   dimensao( *pNumASCII ) >= dimASCII
+ *   dimASCII >= max( 3 , 2 + log10( abs( Numero ))
+ ***************************************************************************/
+char* BCD_ConverterLongASCII(int dimASCII,
+                              char* pNumASCII,
+                              long Numero);
+
+
+#endif  // MONITORA_LOGS_HPP_
