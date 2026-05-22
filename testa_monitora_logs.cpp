@@ -516,6 +516,20 @@ TEST(LOG_LerArquivoLogTest, T23_ArquivoComLinhasMistas) {
     RemoverArquivo(caminho);
 }
 
+// ===========================================================================
+// TESTES — LOG_EscreverArquivoLog
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 24: Escrita e releitura de arquivo de log
+// Objetivo: Verifica que registros escritos podem ser relidos corretamente
+//           (round-trip).
+// Passa quando: registros relidos são iguais aos escritos
+// ---------------------------------------------------------------------------
+TEST(LOG_EscreverArquivoLogTest, T24_EscritaReleitura) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
