@@ -310,6 +310,37 @@ TEST(LOG_ObterNomeArquivoTotalTest, T12_CaminhoMinimo) {
         << "Arquivo de nome mínimo deve gerar 'total_x'";
 }
 
+// ===========================================================================
+// TESTES — LOG_CompararRegistros
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 13: Registro mais antigo < mais novo
+// Objetivo: Verifica ordenação correta entre dois registros distintos.
+// Passa quando: retorna valor negativo
+// ---------------------------------------------------------------------------
+TEST(LOG_CompararRegistrosTest, T13_MaisAntigoMenor) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 14: Registros com mesma data/hora
+// Objetivo: Verifica retorno zero para registros idênticos em tempo.
+// Passa quando: retorna 0
+// ---------------------------------------------------------------------------
+TEST(LOG_CompararRegistrosTest, T14_MesmaDataHora) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 15: Registro mais novo > mais antigo
+// Objetivo: Verifica que comparação é antisimétrica.
+// Passa quando: retorna valor positivo
+// ---------------------------------------------------------------------------
+TEST(LOG_CompararRegistrosTest, T15_MaisNovoMaior) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
