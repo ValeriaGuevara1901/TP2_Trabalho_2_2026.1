@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Monitoramento de Logs: Código-Fonte de monitora_logs.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Monitoramento de Logs<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Sistema TDD para monitoramento e consolidação de arquivos de log</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('monitora__logs_8hpp_source.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">monitora_logs.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="monitora__logs_8hpp.html">Ir para a documentação deste ficheiro.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef MONITORA_LOGS_HPP_</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define MONITORA_LOGS_HPP_</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="monitora__logs_8hpp.html#aff2b0854a3b200f3d15e202f254df7a4">   19</a></span><span class="preprocessor">#define MAX_MSG_LOG 101</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="monitora__logs_8hpp.html#a5e35b42e97713b378212a41e6173ad31">   21</a></span><span class="preprocessor">#define MAX_LINHA_LOG 200</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="monitora__logs_8hpp.html#a96835d1bc9d19e329bf233b767a95486">   23</a></span><span class="preprocessor">#define MAX_PATH_LOG 512</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span></div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structRegistroLog.html">   30</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structRegistroLog.html">RegistroLog</a> {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structRegistroLog.html#a1a4699c6bf72204afd8b7a5d7eb0375d">   31</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structRegistroLog.html#a1a4699c6bf72204afd8b7a5d7eb0375d">dia</a>;               </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structRegistroLog.html#a7ca36d5a8f9dc19b88f3ed8b6ee7751f">   32</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structRegistroLog.html#a7ca36d5a8f9dc19b88f3ed8b6ee7751f">mes</a>;               </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structRegistroLog.html#a582e25eb0d85396767be01397b9c916a">   33</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structRegistroLog.html#a582e25eb0d85396767be01397b9c916a">ano</a>;               </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structRegistroLog.html#a221343c610a50c0e61d212911d83d7a1">   34</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structRegistroLog.html#a221343c610a50c0e61d212911d83d7a1">hora</a>;              </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="structRegistroLog.html#a7ee78e567542f532c2518fb58bc4f112">   35</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structRegistroLog.html#a7ee78e567542f532c2518fb58bc4f112">minuto</a>;            </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structRegistroLog.html#a7bfdead811fbd1221aa7102bba226832">   36</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structRegistroLog.html#a7bfdead811fbd1221aa7102bba226832">segundo</a>;           </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="structRegistroLog.html#a504b4688f13985f7ecd59aa1270f0c21">   37</a></span>    <span class="keywordtype">char</span> <a class="code hl_variable" href="structRegistroLog.html#a504b4688f13985f7ecd59aa1270f0c21">mensagem</a>[<a class="code hl_define" href="monitora__logs_8hpp.html#aff2b0854a3b200f3d15e202f254df7a4">MAX_MSG_LOG</a>]; </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>};</div>
+</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">char</span>* <a class="code hl_function" href="monitora__logs_8hpp.html#a33cc539dd17d2549462d8315c779e18b">BCD_ConverterLongASCII</a>(<span class="keywordtype">int</span> dimASCII,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                              <span class="keywordtype">char</span>* pNumASCII,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>                              <span class="keywordtype">long</span> Numero);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>std::vector&lt;std::string&gt; <a class="code hl_function" href="monitora__logs_8hpp.html#a5fb1ca2f0adf4a04d8bdbdb35f9daa23">LOG_LerArquivosMonitorados</a>(</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keyword">const</span> std::string&amp; caminhoArquivosLogs);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span></div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="keywordtype">bool</span> <a class="code hl_function" href="monitora__logs_8hpp.html#acbef8d761be3c8c06a1525702abe1503">LOG_ParseLinha</a>(<span class="keyword">const</span> std::string&amp; linha, <a class="code hl_struct" href="structRegistroLog.html">RegistroLog</a>* registro);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>std::string <a class="code hl_function" href="monitora__logs_8hpp.html#ac4f3653c714041c2cec82f93f80c60dc">LOG_ObterNomeArquivoTotal</a>(<span class="keyword">const</span> std::string&amp; caminhoLog);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keywordtype">int</span> <a class="code hl_function" href="monitora__logs_8hpp.html#a86f7cdea32d82bd82f1dc677acd8ea3f">LOG_CompararRegistros</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structRegistroLog.html">RegistroLog</a>&amp; a, <span class="keyword">const</span> <a class="code hl_struct" href="structRegistroLog.html">RegistroLog</a>&amp; b);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>std::vector&lt;RegistroLog&gt; <a class="code hl_function" href="monitora__logs_8hpp.html#a7377261103d06944360244d52bb2a5b0">LOG_MergeOrdenado</a>(</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">const</span> std::vector&lt;RegistroLog&gt;&amp; base,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keyword">const</span> std::vector&lt;RegistroLog&gt;&amp; novos);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>std::vector&lt;RegistroLog&gt; <a class="code hl_function" href="monitora__logs_8hpp.html#a5bd24bcbae259c672727b3d4faecccc6">LOG_LerArquivoLog</a>(<span class="keyword">const</span> std::string&amp; caminhoLog);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="keywordtype">bool</span> <a class="code hl_function" href="monitora__logs_8hpp.html#aae054575890fd4eae4fb6350e63aa9f5">LOG_EscreverArquivoLog</a>(<span class="keyword">const</span> std::string&amp; caminhoLog,</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>                            <span class="keyword">const</span> std::vector&lt;RegistroLog&gt;&amp; registros);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keywordtype">bool</span> <a class="code hl_function" href="monitora__logs_8hpp.html#ac1446b89aa9aeb83c567085f1f5c5db6">LOG_ProcessarArquivo</a>(<span class="keyword">const</span> std::string&amp; caminhoLog);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="keywordtype">int</span> <a class="code hl_function" href="monitora__logs_8hpp.html#ac5f509eb53bdedad4249cd5b3b74f91f">LOG_MonitorarLogs</a>(<span class="keyword">const</span> std::string&amp; caminhoConfig);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="preprocessor">#endif  </span><span class="comment">// MONITORA_LOGS_HPP_</span></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_a33cc539dd17d2549462d8315c779e18b"><div class="ttname"><a href="monitora__logs_8hpp.html#a33cc539dd17d2549462d8315c779e18b">BCD_ConverterLongASCII</a></div><div class="ttdeci">char * BCD_ConverterLongASCII(int dimASCII, char *pNumASCII, long Numero)</div><div class="ttdoc">Converte um inteiro long para string ASCII.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00029">monitora_logs.cpp:29</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_a5bd24bcbae259c672727b3d4faecccc6"><div class="ttname"><a href="monitora__logs_8hpp.html#a5bd24bcbae259c672727b3d4faecccc6">LOG_LerArquivoLog</a></div><div class="ttdeci">std::vector&lt; RegistroLog &gt; LOG_LerArquivoLog(const std::string &amp;caminhoLog)</div><div class="ttdoc">Lê um arquivo de log e retorna os registros válidos.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00202">monitora_logs.cpp:202</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_a5fb1ca2f0adf4a04d8bdbdb35f9daa23"><div class="ttname"><a href="monitora__logs_8hpp.html#a5fb1ca2f0adf4a04d8bdbdb35f9daa23">LOG_LerArquivosMonitorados</a></div><div class="ttdeci">std::vector&lt; std::string &gt; LOG_LerArquivosMonitorados(const std::string &amp;caminhoArquivosLogs)</div><div class="ttdoc">Lê a lista de arquivos de log a serem monitorados.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00062">monitora_logs.cpp:62</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_a7377261103d06944360244d52bb2a5b0"><div class="ttname"><a href="monitora__logs_8hpp.html#a7377261103d06944360244d52bb2a5b0">LOG_MergeOrdenado</a></div><div class="ttdeci">std::vector&lt; RegistroLog &gt; LOG_MergeOrdenado(const std::vector&lt; RegistroLog &gt; &amp;base, const std::vector&lt; RegistroLog &gt; &amp;novos)</div><div class="ttdoc">Combina dois vetores de registros de log em um único vetor ordenado.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00179">monitora_logs.cpp:179</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_a86f7cdea32d82bd82f1dc677acd8ea3f"><div class="ttname"><a href="monitora__logs_8hpp.html#a86f7cdea32d82bd82f1dc677acd8ea3f">LOG_CompararRegistros</a></div><div class="ttdeci">int LOG_CompararRegistros(const RegistroLog &amp;a, const RegistroLog &amp;b)</div><div class="ttdoc">Compara dois registros de log pela data/hora.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00160">monitora_logs.cpp:160</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_aae054575890fd4eae4fb6350e63aa9f5"><div class="ttname"><a href="monitora__logs_8hpp.html#aae054575890fd4eae4fb6350e63aa9f5">LOG_EscreverArquivoLog</a></div><div class="ttdeci">bool LOG_EscreverArquivoLog(const std::string &amp;caminhoLog, const std::vector&lt; RegistroLog &gt; &amp;registros)</div><div class="ttdoc">Escreve registros de log em um arquivo.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00227">monitora_logs.cpp:227</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_ac1446b89aa9aeb83c567085f1f5c5db6"><div class="ttname"><a href="monitora__logs_8hpp.html#ac1446b89aa9aeb83c567085f1f5c5db6">LOG_ProcessarArquivo</a></div><div class="ttdeci">bool LOG_ProcessarArquivo(const std::string &amp;caminhoLog)</div><div class="ttdoc">Processa um arquivo de log e atualiza o arquivo total.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00250">monitora_logs.cpp:250</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_ac4f3653c714041c2cec82f93f80c60dc"><div class="ttname"><a href="monitora__logs_8hpp.html#ac4f3653c714041c2cec82f93f80c60dc">LOG_ObterNomeArquivoTotal</a></div><div class="ttdeci">std::string LOG_ObterNomeArquivoTotal(const std::string &amp;caminhoLog)</div><div class="ttdoc">Obtém o caminho do arquivo total correspondente a um arquivo de log.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00127">monitora_logs.cpp:127</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_ac5f509eb53bdedad4249cd5b3b74f91f"><div class="ttname"><a href="monitora__logs_8hpp.html#ac5f509eb53bdedad4249cd5b3b74f91f">LOG_MonitorarLogs</a></div><div class="ttdeci">int LOG_MonitorarLogs(const std::string &amp;caminhoConfig)</div><div class="ttdoc">Monitora e processa todos os arquivos de log listados na configuração.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00279">monitora_logs.cpp:279</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_acbef8d761be3c8c06a1525702abe1503"><div class="ttname"><a href="monitora__logs_8hpp.html#acbef8d761be3c8c06a1525702abe1503">LOG_ParseLinha</a></div><div class="ttdeci">bool LOG_ParseLinha(const std::string &amp;linha, RegistroLog *registro)</div><div class="ttdoc">Interpreta uma linha de log e preenche a estrutura RegistroLog.</div><div class="ttdef"><b>Definição</b> <a href="monitora__logs_8cpp_source.html#l00071">monitora_logs.cpp:71</a></div></div>
+<div class="ttc" id="amonitora__logs_8hpp_html_aff2b0854a3b200f3d15e202f254df7a4"><div class="ttname"><a href="monitora__logs_8hpp.html#aff2b0854a3b200f3d15e202f254df7a4">MAX_MSG_LOG</a></div><div class="ttdeci">#define MAX_MSG_LOG</div><div class="ttdoc">Tamanho máximo da mensagem de log (sem data/hora).</div><div class="ttdef"><b>Definição</b> <a href="#l00019">monitora_logs.hpp:19</a></div></div>
+<div class="ttc" id="astructRegistroLog_html"><div class="ttname"><a href="structRegistroLog.html">RegistroLog</a></div><div class="ttdoc">Estrutura que representa um registro de log.</div><div class="ttdef"><b>Definição</b> <a href="#l00030">monitora_logs.hpp:30</a></div></div>
+<div class="ttc" id="astructRegistroLog_html_a1a4699c6bf72204afd8b7a5d7eb0375d"><div class="ttname"><a href="structRegistroLog.html#a1a4699c6bf72204afd8b7a5d7eb0375d">RegistroLog::dia</a></div><div class="ttdeci">int dia</div><div class="ttdoc">Dia do registro (1-31).</div><div class="ttdef"><b>Definição</b> <a href="#l00031">monitora_logs.hpp:31</a></div></div>
+<div class="ttc" id="astructRegistroLog_html_a221343c610a50c0e61d212911d83d7a1"><div class="ttname"><a href="structRegistroLog.html#a221343c610a50c0e61d212911d83d7a1">RegistroLog::hora</a></div><div class="ttdeci">int hora</div><div class="ttdoc">Hora do registro (0-23).</div><div class="ttdef"><b>Definição</b> <a href="#l00034">monitora_logs.hpp:34</a></div></div>
+<div class="ttc" id="astructRegistroLog_html_a504b4688f13985f7ecd59aa1270f0c21"><div class="ttname"><a href="structRegistroLog.html#a504b4688f13985f7ecd59aa1270f0c21">RegistroLog::mensagem</a></div><div class="ttdeci">char mensagem[MAX_MSG_LOG]</div><div class="ttdoc">Mensagem de log.</div><div class="ttdef"><b>Definição</b> <a href="#l00037">monitora_logs.hpp:37</a></div></div>
+<div class="ttc" id="astructRegistroLog_html_a582e25eb0d85396767be01397b9c916a"><div class="ttname"><a href="structRegistroLog.html#a582e25eb0d85396767be01397b9c916a">RegistroLog::ano</a></div><div class="ttdeci">int ano</div><div class="ttdoc">Ano do registro (ex: 2026).</div><div class="ttdef"><b>Definição</b> <a href="#l00033">monitora_logs.hpp:33</a></div></div>
+<div class="ttc" id="astructRegistroLog_html_a7bfdead811fbd1221aa7102bba226832"><div class="ttname"><a href="structRegistroLog.html#a7bfdead811fbd1221aa7102bba226832">RegistroLog::segundo</a></div><div class="ttdeci">int segundo</div><div class="ttdoc">Segundo do registro (0-59).</div><div class="ttdef"><b>Definição</b> <a href="#l00036">monitora_logs.hpp:36</a></div></div>
+<div class="ttc" id="astructRegistroLog_html_a7ca36d5a8f9dc19b88f3ed8b6ee7751f"><div class="ttname"><a href="structRegistroLog.html#a7ca36d5a8f9dc19b88f3ed8b6ee7751f">RegistroLog::mes</a></div><div class="ttdeci">int mes</div><div class="ttdoc">Mês do registro (1-12).</div><div class="ttdef"><b>Definição</b> <a href="#l00032">monitora_logs.hpp:32</a></div></div>
+<div class="ttc" id="astructRegistroLog_html_a7ee78e567542f532c2518fb58bc4f112"><div class="ttname"><a href="structRegistroLog.html#a7ee78e567542f532c2518fb58bc4f112">RegistroLog::minuto</a></div><div class="ttdeci">int minuto</div><div class="ttdoc">Minuto do registro (0-59).</div><div class="ttdef"><b>Definição</b> <a href="#l00035">monitora_logs.hpp:35</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="monitora__logs_8hpp.html">monitora_logs.hpp</a></li>
+    <li class="footer">Gerado em <span class="timestamp"></span> para Sistema de Monitoramento de Logs por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

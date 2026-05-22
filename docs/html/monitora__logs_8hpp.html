@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Monitoramento de Logs: Referência ao ficheiro monitora_logs.hpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Monitoramento de Logs<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Sistema TDD para monitoramento e consolidação de arquivos de log</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('monitora__logs_8hpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência ao ficheiro monitora_logs.hpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Sistema de Monitoramento de Logs - Cabeçalho.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+</div>
+<p><a href="monitora__logs_8hpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Componentes</h2></td></tr>
+<tr class="memitem:RegistroLog" id="r_RegistroLog"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structRegistroLog.html">RegistroLog</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Estrutura que representa um registro de log.  <a href="structRegistroLog.html#details">Mais...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:aff2b0854a3b200f3d15e202f254df7a4" id="r_aff2b0854a3b200f3d15e202f254df7a4"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#aff2b0854a3b200f3d15e202f254df7a4">MAX_MSG_LOG</a>&#160;&#160;&#160;101</td></tr>
+<tr class="memdesc:aff2b0854a3b200f3d15e202f254df7a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamanho máximo da mensagem de log (sem data/hora).  <br /></td></tr>
+<tr class="memitem:a5e35b42e97713b378212a41e6173ad31" id="r_a5e35b42e97713b378212a41e6173ad31"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a5e35b42e97713b378212a41e6173ad31">MAX_LINHA_LOG</a>&#160;&#160;&#160;200</td></tr>
+<tr class="memdesc:a5e35b42e97713b378212a41e6173ad31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamanho máximo de uma linha completa de log (data + hora + mensagem).  <br /></td></tr>
+<tr class="memitem:a96835d1bc9d19e329bf233b767a95486" id="r_a96835d1bc9d19e329bf233b767a95486"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a96835d1bc9d19e329bf233b767a95486">MAX_PATH_LOG</a>&#160;&#160;&#160;512</td></tr>
+<tr class="memdesc:a96835d1bc9d19e329bf233b767a95486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tamanho máximo do caminho de arquivo.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:a33cc539dd17d2549462d8315c779e18b" id="r_a33cc539dd17d2549462d8315c779e18b"><td class="memItemLeft">char *&#160;</td><td class="memItemRight"><a class="el" href="#a33cc539dd17d2549462d8315c779e18b">BCD_ConverterLongASCII</a> (int dimASCII, char *pNumASCII, long Numero)</td></tr>
+<tr class="memdesc:a33cc539dd17d2549462d8315c779e18b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Converte um inteiro long para string ASCII.  <br /></td></tr>
+<tr class="memitem:a5fb1ca2f0adf4a04d8bdbdb35f9daa23" id="r_a5fb1ca2f0adf4a04d8bdbdb35f9daa23"><td class="memItemLeft">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5fb1ca2f0adf4a04d8bdbdb35f9daa23">LOG_LerArquivosMonitorados</a> (const std::string &amp;caminhoArquivosLogs)</td></tr>
+<tr class="memdesc:a5fb1ca2f0adf4a04d8bdbdb35f9daa23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê a lista de arquivos de log a serem monitorados.  <br /></td></tr>
+<tr class="memitem:acbef8d761be3c8c06a1525702abe1503" id="r_acbef8d761be3c8c06a1525702abe1503"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#acbef8d761be3c8c06a1525702abe1503">LOG_ParseLinha</a> (const std::string &amp;linha, <a class="el" href="structRegistroLog.html">RegistroLog</a> *registro)</td></tr>
+<tr class="memdesc:acbef8d761be3c8c06a1525702abe1503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interpreta uma linha de log e preenche a estrutura <a class="el" href="structRegistroLog.html" title="Estrutura que representa um registro de log.">RegistroLog</a>.  <br /></td></tr>
+<tr class="memitem:ac4f3653c714041c2cec82f93f80c60dc" id="r_ac4f3653c714041c2cec82f93f80c60dc"><td class="memItemLeft">std::string&#160;</td><td class="memItemRight"><a class="el" href="#ac4f3653c714041c2cec82f93f80c60dc">LOG_ObterNomeArquivoTotal</a> (const std::string &amp;caminhoLog)</td></tr>
+<tr class="memdesc:ac4f3653c714041c2cec82f93f80c60dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Obtém o caminho do arquivo total correspondente a um arquivo de log.  <br /></td></tr>
+<tr class="memitem:a86f7cdea32d82bd82f1dc677acd8ea3f" id="r_a86f7cdea32d82bd82f1dc677acd8ea3f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a86f7cdea32d82bd82f1dc677acd8ea3f">LOG_CompararRegistros</a> (const <a class="el" href="structRegistroLog.html">RegistroLog</a> &amp;a, const <a class="el" href="structRegistroLog.html">RegistroLog</a> &amp;b)</td></tr>
+<tr class="memdesc:a86f7cdea32d82bd82f1dc677acd8ea3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compara dois registros de log pela data/hora.  <br /></td></tr>
+<tr class="memitem:a7377261103d06944360244d52bb2a5b0" id="r_a7377261103d06944360244d52bb2a5b0"><td class="memItemLeft">std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a7377261103d06944360244d52bb2a5b0">LOG_MergeOrdenado</a> (const std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt; &amp;base, const std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt; &amp;novos)</td></tr>
+<tr class="memdesc:a7377261103d06944360244d52bb2a5b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Combina dois vetores de registros de log em um único vetor ordenado.  <br /></td></tr>
+<tr class="memitem:a5bd24bcbae259c672727b3d4faecccc6" id="r_a5bd24bcbae259c672727b3d4faecccc6"><td class="memItemLeft">std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#a5bd24bcbae259c672727b3d4faecccc6">LOG_LerArquivoLog</a> (const std::string &amp;caminhoLog)</td></tr>
+<tr class="memdesc:a5bd24bcbae259c672727b3d4faecccc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Lê um arquivo de log e retorna os registros válidos.  <br /></td></tr>
+<tr class="memitem:aae054575890fd4eae4fb6350e63aa9f5" id="r_aae054575890fd4eae4fb6350e63aa9f5"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aae054575890fd4eae4fb6350e63aa9f5">LOG_EscreverArquivoLog</a> (const std::string &amp;caminhoLog, const std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt; &amp;registros)</td></tr>
+<tr class="memdesc:aae054575890fd4eae4fb6350e63aa9f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Escreve registros de log em um arquivo.  <br /></td></tr>
+<tr class="memitem:ac1446b89aa9aeb83c567085f1f5c5db6" id="r_ac1446b89aa9aeb83c567085f1f5c5db6"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac1446b89aa9aeb83c567085f1f5c5db6">LOG_ProcessarArquivo</a> (const std::string &amp;caminhoLog)</td></tr>
+<tr class="memdesc:ac1446b89aa9aeb83c567085f1f5c5db6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processa um arquivo de log e atualiza o arquivo total.  <br /></td></tr>
+<tr class="memitem:ac5f509eb53bdedad4249cd5b3b74f91f" id="r_ac5f509eb53bdedad4249cd5b3b74f91f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#ac5f509eb53bdedad4249cd5b3b74f91f">LOG_MonitorarLogs</a> (const std::string &amp;caminhoConfig)</td></tr>
+<tr class="memdesc:ac5f509eb53bdedad4249cd5b3b74f91f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Monitora e processa todos os arquivos de log listados na configuração.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Sistema de Monitoramento de Logs - Cabeçalho. </p>
+<p>Define as estruturas e protótipos de funções para o sistema de monitoramento e merge de arquivos de log ordenados por data/hora.</p>
+<p>Disciplina: Técnicas de Programação 2 – CIC0198 – UnB </p><dl class="section author"><dt>Autor</dt><dd>Estudante UnB </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2026 </dd></dl>
+
+<p class="definition">Definido no ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Documentação das macros</h2>
+<a id="a5e35b42e97713b378212a41e6173ad31" name="a5e35b42e97713b378212a41e6173ad31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e35b42e97713b378212a41e6173ad31">&#9670;&#160;</a></span>MAX_LINHA_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_LINHA_LOG&#160;&#160;&#160;200</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamanho máximo de uma linha completa de log (data + hora + mensagem). </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00021">21</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+</div>
+</div>
+<a id="aff2b0854a3b200f3d15e202f254df7a4" name="aff2b0854a3b200f3d15e202f254df7a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff2b0854a3b200f3d15e202f254df7a4">&#9670;&#160;</a></span>MAX_MSG_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_MSG_LOG&#160;&#160;&#160;101</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamanho máximo da mensagem de log (sem data/hora). </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00019">19</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a>.</p>
+
+</div>
+</div>
+<a id="a96835d1bc9d19e329bf233b767a95486" name="a96835d1bc9d19e329bf233b767a95486"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a96835d1bc9d19e329bf233b767a95486">&#9670;&#160;</a></span>MAX_PATH_LOG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_PATH_LOG&#160;&#160;&#160;512</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Tamanho máximo do caminho de arquivo. </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00023">23</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a33cc539dd17d2549462d8315c779e18b" name="a33cc539dd17d2549462d8315c779e18b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33cc539dd17d2549462d8315c779e18b">&#9670;&#160;</a></span>BCD_ConverterLongASCII()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char * BCD_ConverterLongASCII </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>dimASCII</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *</td>          <td class="paramname"><span class="paramname"><em>pNumASCII</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long</td>          <td class="paramname"><span class="paramname"><em>Numero</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Converte um inteiro long para string ASCII. </p>
+<p>O string resultado estará alinhado à esquerda no buffer fornecido. Será truncado à direita caso o string convertido exceda a dimensão limite. O primeiro caractere será '-' se e somente se o número for negativo.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dimASCII</td><td>Número máximo de caracteres do string, incluindo o '\0' terminal. </td></tr>
+    <tr><td class="paramname">pNumASCII</td><td>Ponteiro para o buffer que receberá o string convertido. </td></tr>
+    <tr><td class="paramname">Numero</td><td>Inteiro a ser convertido para string. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Retorna pNumASCII com o número convertido, ou NULL se pNumASCII==NULL ou dimASCII &lt; 2. </dd></dl>
+<dl class="section pre"><dt>Precondição</dt><dd>pNumASCII != NULL </dd>
+<dd>
+dimensao(*pNumASCII) &gt;= dimASCII </dd>
+<dd>
+dimASCII &gt;= max(3, 2 + log10(abs(Numero))) </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00029">29</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="testa__monitora__logs_8cpp_source.html#l00083">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00109">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00135">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00156">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00176">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a86f7cdea32d82bd82f1dc677acd8ea3f" name="a86f7cdea32d82bd82f1dc677acd8ea3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86f7cdea32d82bd82f1dc677acd8ea3f">&#9670;&#160;</a></span>LOG_CompararRegistros()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LOG_CompararRegistros </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structRegistroLog.html">RegistroLog</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structRegistroLog.html">RegistroLog</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Compara dois registros de log pela data/hora. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a</td><td>Primeiro registro a comparar. </td></tr>
+    <tr><td class="paramname">b</td><td>Segundo registro a comparar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Valor negativo se a &lt; b (a é mais antigo), zero se a == b (mesma data/hora), valor positivo se a &gt; b (a é mais recente). </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00160">160</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8hpp_source.html#l00033">RegistroLog::ano</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00031">RegistroLog::dia</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00034">RegistroLog::hora</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00032">RegistroLog::mes</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00035">RegistroLog::minuto</a> e <a class="el" href="monitora__logs_8hpp_source.html#l00036">RegistroLog::segundo</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="testa__monitora__logs_8cpp_source.html#l00322">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00335">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00348">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00365">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00561">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00650">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="aae054575890fd4eae4fb6350e63aa9f5" name="aae054575890fd4eae4fb6350e63aa9f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae054575890fd4eae4fb6350e63aa9f5">&#9670;&#160;</a></span>LOG_EscreverArquivoLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LOG_EscreverArquivoLog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminhoLog</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>registros</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Escreve registros de log em um arquivo. </p>
+<p>Formato de saída: "DD/MM/AAAA HH:MM:SS mensagem".</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminhoLog</td><td>Caminho do arquivo a escrever. </td></tr>
+    <tr><td class="paramname">registros</td><td>Vetor de registros a escrever. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a escrita foi bem-sucedida, false caso contrário. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00227">227</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00529">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a5bd24bcbae259c672727b3d4faecccc6" name="a5bd24bcbae259c672727b3d4faecccc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bd24bcbae259c672727b3d4faecccc6">&#9670;&#160;</a></span>LOG_LerArquivoLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt; LOG_LerArquivoLog </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminhoLog</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lê um arquivo de log e retorna os registros válidos. </p>
+<p>Linhas malformadas são ignoradas silenciosamente.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminhoLog</td><td>Caminho do arquivo de log a ler. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor de <a class="el" href="structRegistroLog.html" title="Estrutura que representa um registro de log.">RegistroLog</a> com os registros parseados. Retorna vetor vazio se o arquivo não existir. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00202">202</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00529">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00471">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00492">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00504">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00561">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00598">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00650">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a5fb1ca2f0adf4a04d8bdbdb35f9daa23" name="a5fb1ca2f0adf4a04d8bdbdb35f9daa23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb1ca2f0adf4a04d8bdbdb35f9daa23">&#9670;&#160;</a></span>LOG_LerArquivosMonitorados()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; LOG_LerArquivosMonitorados </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminhoArquivosLogs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Lê a lista de arquivos de log a serem monitorados. </p>
+<p>Lê o arquivo logs.txt e retorna a lista de caminhos dos arquivos de log a serem monitorados.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminhoArquivosLogs</td><td>Caminho para o arquivo logs.txt. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor de strings com os caminhos dos arquivos monitorados. Retorna vetor vazio se o arquivo não existir ou estiver vazio. </dd></dl>
+<dl class="section pre"><dt>Precondição</dt><dd>caminhoArquivosLogs não pode ser vazio. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00062">62</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00279">LOG_MonitorarLogs()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00432">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00455">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a7377261103d06944360244d52bb2a5b0" name="a7377261103d06944360244d52bb2a5b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7377261103d06944360244d52bb2a5b0">&#9670;&#160;</a></span>LOG_MergeOrdenado()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt; LOG_MergeOrdenado </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>base</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="structRegistroLog.html">RegistroLog</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>novos</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Combina dois vetores de registros de log em um único vetor ordenado. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">base</td><td>Vetor com registros existentes (pode ser vazio). </td></tr>
+    <tr><td class="paramname">novos</td><td>Vetor com novos registros a adicionar (pode ser vazio). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Vetor com todos os registros ordenados cronologicamente. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00179">179</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00365">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00394">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00411">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="ac5f509eb53bdedad4249cd5b3b74f91f" name="ac5f509eb53bdedad4249cd5b3b74f91f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5f509eb53bdedad4249cd5b3b74f91f">&#9670;&#160;</a></span>LOG_MonitorarLogs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LOG_MonitorarLogs </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminhoConfig</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Monitora e processa todos os arquivos de log listados na configuração. </p>
+<p>Lê a lista de arquivos a monitorar do arquivo de configuração e processa cada um deles, gerando/atualizando os arquivos total_.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminhoConfig</td><td>Caminho do arquivo de configuração (logs.txt). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Número de arquivos processados com sucesso, ou -1 se o arquivo de configuração não existir. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00279">279</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00062">LOG_LerArquivosMonitorados()</a> e <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="testa__monitora__logs_8cpp_source.html#l00702">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00732">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="ac4f3653c714041c2cec82f93f80c60dc" name="ac4f3653c714041c2cec82f93f80c60dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4f3653c714041c2cec82f93f80c60dc">&#9670;&#160;</a></span>LOG_ObterNomeArquivoTotal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string LOG_ObterNomeArquivoTotal </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminhoLog</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Obtém o caminho do arquivo total correspondente a um arquivo de log. </p>
+<p>Dado o caminho de um arquivo de log, retorna o caminho do arquivo total correspondente, prefixando "total_" ao nome do arquivo.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminhoLog</td><td>Caminho do arquivo de log original. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>Caminho do arquivo total (ex: "logs/total_log1.txt"). </dd></dl>
+<dl class="section pre"><dt>Precondição</dt><dd>caminhoLog não pode ser vazio. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00127">127</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00283">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00295">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00307">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00266">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="acbef8d761be3c8c06a1525702abe1503" name="acbef8d761be3c8c06a1525702abe1503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acbef8d761be3c8c06a1525702abe1503">&#9670;&#160;</a></span>LOG_ParseLinha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LOG_ParseLinha </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>linha</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structRegistroLog.html">RegistroLog</a> *</td>          <td class="paramname"><span class="paramname"><em>registro</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Interpreta uma linha de log e preenche a estrutura <a class="el" href="structRegistroLog.html" title="Estrutura que representa um registro de log.">RegistroLog</a>. </p>
+<p>Formato esperado: "DD/MM/AAAA HH:MM:SS mensagem"</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">linha</td><td>String com a linha de log a ser interpretada. </td></tr>
+    <tr><td class="paramname">registro</td><td>Ponteiro para a estrutura que receberá os dados. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se a linha foi interpretada com sucesso, false se o formato for inválido. </dd></dl>
+<dl class="section pre"><dt>Precondição</dt><dd>registro != NULL </dd>
+<dd>
+linha não pode ser vazia. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00071">71</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8hpp_source.html#l00033">RegistroLog::ano</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00031">RegistroLog::dia</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00034">RegistroLog::hora</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00019">MAX_MSG_LOG</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00037">RegistroLog::mensagem</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00032">RegistroLog::mes</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00035">RegistroLog::minuto</a> e <a class="el" href="monitora__logs_8hpp_source.html#l00036">RegistroLog::segundo</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00228">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00248">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="ac1446b89aa9aeb83c567085f1f5c5db6" name="ac1446b89aa9aeb83c567085f1f5c5db6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1446b89aa9aeb83c567085f1f5c5db6">&#9670;&#160;</a></span>LOG_ProcessarArquivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LOG_ProcessarArquivo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminhoLog</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processa um arquivo de log e atualiza o arquivo total. </p>
+<p>Lê os registros do arquivo de log, faz merge com o arquivo total_ existente (se houver) e escreve o resultado ordenado.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminhoLog</td><td>Caminho do arquivo de log a processar. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se o processamento foi bem-sucedido, false caso contrário. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8cpp_source.html#l00250">250</a> do ficheiro <a class="el" href="monitora__logs_8cpp_source.html">monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00227">LOG_EscreverArquivoLog()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00179">LOG_MergeOrdenado()</a> e <a class="el" href="monitora__logs_8cpp_source.html#l00127">LOG_ObterNomeArquivoTotal()</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00279">LOG_MonitorarLogs()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00561">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00598">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00638">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00650">TEST()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="monitora__logs_8hpp.html">monitora_logs.hpp</a></li>
+    <li class="footer">Gerado em <span class="timestamp"></span> para Sistema de Monitoramento de Logs por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

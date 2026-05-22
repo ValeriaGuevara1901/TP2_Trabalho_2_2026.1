@@ -1,0 +1,312 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Monitoramento de Logs: Referência à estrutura RegistroLog</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Monitoramento de Logs<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Sistema TDD para monitoramento e consolidação de arquivos de log</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('structRegistroLog.html','','structRegistroLog-members'); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência à estrutura RegistroLog</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estrutura que representa um registro de log.  
+ <a href="#details">Mais...</a></p>
+
+<p><code>#include &lt;<a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Atributos Públicos</h2></td></tr>
+<tr class="memitem:a1a4699c6bf72204afd8b7a5d7eb0375d" id="r_a1a4699c6bf72204afd8b7a5d7eb0375d"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a1a4699c6bf72204afd8b7a5d7eb0375d">dia</a></td></tr>
+<tr class="memdesc:a1a4699c6bf72204afd8b7a5d7eb0375d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dia do registro (1-31).  <br /></td></tr>
+<tr class="memitem:a7ca36d5a8f9dc19b88f3ed8b6ee7751f" id="r_a7ca36d5a8f9dc19b88f3ed8b6ee7751f"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7ca36d5a8f9dc19b88f3ed8b6ee7751f">mes</a></td></tr>
+<tr class="memdesc:a7ca36d5a8f9dc19b88f3ed8b6ee7751f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mês do registro (1-12).  <br /></td></tr>
+<tr class="memitem:a582e25eb0d85396767be01397b9c916a" id="r_a582e25eb0d85396767be01397b9c916a"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a582e25eb0d85396767be01397b9c916a">ano</a></td></tr>
+<tr class="memdesc:a582e25eb0d85396767be01397b9c916a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ano do registro (ex: 2026).  <br /></td></tr>
+<tr class="memitem:a221343c610a50c0e61d212911d83d7a1" id="r_a221343c610a50c0e61d212911d83d7a1"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a221343c610a50c0e61d212911d83d7a1">hora</a></td></tr>
+<tr class="memdesc:a221343c610a50c0e61d212911d83d7a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Hora do registro (0-23).  <br /></td></tr>
+<tr class="memitem:a7ee78e567542f532c2518fb58bc4f112" id="r_a7ee78e567542f532c2518fb58bc4f112"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7ee78e567542f532c2518fb58bc4f112">minuto</a></td></tr>
+<tr class="memdesc:a7ee78e567542f532c2518fb58bc4f112"><td class="mdescLeft">&#160;</td><td class="mdescRight">Minuto do registro (0-59).  <br /></td></tr>
+<tr class="memitem:a7bfdead811fbd1221aa7102bba226832" id="r_a7bfdead811fbd1221aa7102bba226832"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a7bfdead811fbd1221aa7102bba226832">segundo</a></td></tr>
+<tr class="memdesc:a7bfdead811fbd1221aa7102bba226832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Segundo do registro (0-59).  <br /></td></tr>
+<tr class="memitem:a504b4688f13985f7ecd59aa1270f0c21" id="r_a504b4688f13985f7ecd59aa1270f0c21"><td class="memItemLeft">char&#160;</td><td class="memItemRight"><a class="el" href="#a504b4688f13985f7ecd59aa1270f0c21">mensagem</a> [<a class="el" href="monitora__logs_8hpp.html#aff2b0854a3b200f3d15e202f254df7a4">MAX_MSG_LOG</a>]</td></tr>
+<tr class="memdesc:a504b4688f13985f7ecd59aa1270f0c21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mensagem de log.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Estrutura que representa um registro de log. </p>
+<p>Cada registro contém data, hora e a mensagem de log. </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00030">30</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentação dos dados membro</h2>
+<a id="a582e25eb0d85396767be01397b9c916a" name="a582e25eb0d85396767be01397b9c916a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a582e25eb0d85396767be01397b9c916a">&#9670;&#160;</a></span>ano</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RegistroLog::ano</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Ano do registro (ex: 2026). </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00033">33</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a1a4699c6bf72204afd8b7a5d7eb0375d" name="a1a4699c6bf72204afd8b7a5d7eb0375d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a4699c6bf72204afd8b7a5d7eb0375d">&#9670;&#160;</a></span>dia</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RegistroLog::dia</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Dia do registro (1-31). </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00031">31</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a221343c610a50c0e61d212911d83d7a1" name="a221343c610a50c0e61d212911d83d7a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a221343c610a50c0e61d212911d83d7a1">&#9670;&#160;</a></span>hora</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RegistroLog::hora</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Hora do registro (0-23). </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00034">34</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a504b4688f13985f7ecd59aa1270f0c21" name="a504b4688f13985f7ecd59aa1270f0c21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a504b4688f13985f7ecd59aa1270f0c21">&#9670;&#160;</a></span>mensagem</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char RegistroLog::mensagem[<a class="el" href="monitora__logs_8hpp.html#aff2b0854a3b200f3d15e202f254df7a4">MAX_MSG_LOG</a>]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mensagem de log. </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00037">37</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a7ca36d5a8f9dc19b88f3ed8b6ee7751f" name="a7ca36d5a8f9dc19b88f3ed8b6ee7751f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ca36d5a8f9dc19b88f3ed8b6ee7751f">&#9670;&#160;</a></span>mes</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RegistroLog::mes</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mês do registro (1-12). </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00032">32</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a7ee78e567542f532c2518fb58bc4f112" name="a7ee78e567542f532c2518fb58bc4f112"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7ee78e567542f532c2518fb58bc4f112">&#9670;&#160;</a></span>minuto</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RegistroLog::minuto</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Minuto do registro (0-59). </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00035">35</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a7bfdead811fbd1221aa7102bba226832" name="a7bfdead811fbd1221aa7102bba226832"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bfdead811fbd1221aa7102bba226832">&#9670;&#160;</a></span>segundo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int RegistroLog::segundo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Segundo do registro (0-59). </p>
+
+<p class="definition">Definido na linha <a class="el" href="monitora__logs_8hpp_source.html#l00036">36</a> do ficheiro <a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">TEST()</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:<ul>
+<li><a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="structRegistroLog.html">RegistroLog</a></li>
+    <li class="footer">Gerado em <span class="timestamp"></span> para Sistema de Monitoramento de Logs por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>

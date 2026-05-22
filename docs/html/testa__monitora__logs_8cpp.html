@@ -1,0 +1,1092 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.17.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Sistema de Monitoramento de Logs: Referência ao ficheiro testa_monitora_logs.cpp</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="codefolding.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="module">
+import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+mermaid.initialize({ startOnLoad: true, theme: theme });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Sistema de Monitoramento de Logs<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">Sistema TDD para monitoramento e consolidação de arquivos de log</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.17.0 -->
+<script type="text/javascript">
+let searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', codefold.init);
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Localizar" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded',() => { initNavTree('testa__monitora__logs_8cpp.html','',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Referência ao ficheiro testa_monitora_logs.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Testes TDD para o sistema de monitoramento de logs.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;gtest/gtest.h&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
+<code>#include &lt;string&gt;</code><br />
+<code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;regex&gt;</code><br />
+<code>#include &quot;<a class="el" href="monitora__logs_8hpp_source.html">monitora_logs.hpp</a>&quot;</code><br />
+</div>
+<p><a href="testa__monitora__logs_8cpp_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:ab7960ca0121e398b4c55307c7f338de4" id="r_ab7960ca0121e398b4c55307c7f338de4"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ab7960ca0121e398b4c55307c7f338de4">CriarArquivoTemp</a> (const std::string &amp;caminho, const std::string &amp;conteudo)</td></tr>
+<tr class="memdesc:ab7960ca0121e398b4c55307c7f338de4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cria um arquivo temporário com conteúdo fornecido.  <br /></td></tr>
+<tr class="memitem:a46467fe20f2499331563e161d802db22" id="r_a46467fe20f2499331563e161d802db22"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a46467fe20f2499331563e161d802db22">RemoverArquivo</a> (const std::string &amp;caminho)</td></tr>
+<tr class="memdesc:a46467fe20f2499331563e161d802db22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove um arquivo (ignora erro se não existir).  <br /></td></tr>
+<tr class="memitem:a0c35fbfece61dbd8eec946e92747aa00" id="r_a0c35fbfece61dbd8eec946e92747aa00"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a0c35fbfece61dbd8eec946e92747aa00">ArquivoExiste</a> (const std::string &amp;caminho)</td></tr>
+<tr class="memdesc:a0c35fbfece61dbd8eec946e92747aa00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica se um arquivo existe.  <br /></td></tr>
+<tr class="memitem:ac779dfdca8850527c198327a82560c85" id="r_ac779dfdca8850527c198327a82560c85"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac779dfdca8850527c198327a82560c85">TEST</a> (BCD_ConverterLongASCIITest, T1_NumeroNegativoSuficiente)</td></tr>
+<tr class="memitem:aef8dcff98d39f648868985f8553dee8c" id="r_aef8dcff98d39f648868985f8553dee8c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aef8dcff98d39f648868985f8553dee8c">TEST</a> (BCD_ConverterLongASCIITest, T2_NumeroPositivoSuficiente)</td></tr>
+<tr class="memitem:a40dc7e17fb87cac9f35d679670f91b25" id="r_a40dc7e17fb87cac9f35d679670f91b25"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a40dc7e17fb87cac9f35d679670f91b25">TEST</a> (BCD_ConverterLongASCIITest, T3_NumeroNegativoTruncado)</td></tr>
+<tr class="memitem:a4dc048b4f3afce74c5c1771c53e71691" id="r_a4dc048b4f3afce74c5c1771c53e71691"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4dc048b4f3afce74c5c1771c53e71691">TEST</a> (BCD_ConverterLongASCIITest, T4_NumeroPositivoTruncado)</td></tr>
+<tr class="memitem:ae586e5a3d4107dc14460338f787994a6" id="r_ae586e5a3d4107dc14460338f787994a6"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae586e5a3d4107dc14460338f787994a6">TEST</a> (BCD_ConverterLongASCIITest, T5_Zero)</td></tr>
+<tr class="memitem:a955a811126e81519fd9a79472f317c5f" id="r_a955a811126e81519fd9a79472f317c5f"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a955a811126e81519fd9a79472f317c5f">TEST</a> (LOG_ParseLinhaTest, T6_LinhaFormatoValido)</td></tr>
+<tr class="memitem:a2f562f6f127d99d8f4d8a94f72745144" id="r_a2f562f6f127d99d8f4d8a94f72745144"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2f562f6f127d99d8f4d8a94f72745144">TEST</a> (LOG_ParseLinhaTest, T7_LinhaFormatoInvalido)</td></tr>
+<tr class="memitem:ad0ac73cf5d649f9b21e480f6dbe523a1" id="r_ad0ac73cf5d649f9b21e480f6dbe523a1"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad0ac73cf5d649f9b21e480f6dbe523a1">TEST</a> (LOG_ParseLinhaTest, T8_DataInvalida)</td></tr>
+<tr class="memitem:acaf6f4c1f3516967fd7f2f4e887728c5" id="r_acaf6f4c1f3516967fd7f2f4e887728c5"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acaf6f4c1f3516967fd7f2f4e887728c5">TEST</a> (LOG_ObterNomeArquivoTotalTest, T9_CaminhoComBarra)</td></tr>
+<tr class="memitem:ac778e1ee0d397c89eb27fdb387985fad" id="r_ac778e1ee0d397c89eb27fdb387985fad"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ac778e1ee0d397c89eb27fdb387985fad">TEST</a> (LOG_ObterNomeArquivoTotalTest, T10_CaminhoComBarraNormal)</td></tr>
+<tr class="memitem:a91f93ddee74ed880d6a5db867fc31b74" id="r_a91f93ddee74ed880d6a5db867fc31b74"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a91f93ddee74ed880d6a5db867fc31b74">TEST</a> (LOG_ObterNomeArquivoTotalTest, T11_SemDiretorio)</td></tr>
+<tr class="memitem:a67880b919545d8ea824c7acd6faa3a57" id="r_a67880b919545d8ea824c7acd6faa3a57"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a67880b919545d8ea824c7acd6faa3a57">TEST</a> (LOG_ObterNomeArquivoTotalTest, T12_CaminhoMinimo)</td></tr>
+<tr class="memitem:a859b7eab9dc27ca694d2e21848b8d645" id="r_a859b7eab9dc27ca694d2e21848b8d645"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a859b7eab9dc27ca694d2e21848b8d645">TEST</a> (LOG_CompararRegistrosTest, T13_MaisAntigoMenor)</td></tr>
+<tr class="memitem:acf9e595ce47984e0740523185cc1dcdd" id="r_acf9e595ce47984e0740523185cc1dcdd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#acf9e595ce47984e0740523185cc1dcdd">TEST</a> (LOG_CompararRegistrosTest, T14_MesmaDataHora)</td></tr>
+<tr class="memitem:a2e5f79cee9a96f690f5532d3beb1b6dd" id="r_a2e5f79cee9a96f690f5532d3beb1b6dd"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a2e5f79cee9a96f690f5532d3beb1b6dd">TEST</a> (LOG_CompararRegistrosTest, T15_MaisNovoMaior)</td></tr>
+<tr class="memitem:a7daad313804c75b161291950799d1962" id="r_a7daad313804c75b161291950799d1962"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a7daad313804c75b161291950799d1962">TEST</a> (LOG_MergeOrdenadoTest, T16_MergeDoisVetores)</td></tr>
+<tr class="memitem:a60c4485ee1a7c1b5556d7be65b4ac515" id="r_a60c4485ee1a7c1b5556d7be65b4ac515"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a60c4485ee1a7c1b5556d7be65b4ac515">TEST</a> (LOG_MergeOrdenadoTest, T17_BaseVazia)</td></tr>
+<tr class="memitem:a8ec8461e0de55d052177c73a2bcaefd7" id="r_a8ec8461e0de55d052177c73a2bcaefd7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8ec8461e0de55d052177c73a2bcaefd7">TEST</a> (LOG_MergeOrdenadoTest, T18_NovosVazios)</td></tr>
+<tr class="memitem:a82c297c3978daad971ed511a6281edb2" id="r_a82c297c3978daad971ed511a6281edb2"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a82c297c3978daad971ed511a6281edb2">TEST</a> (LOG_LerArquivosMonitoradosTest, T19_ArquivoValido)</td></tr>
+<tr class="memitem:a29d77846f70058937bf3addc28bf62fb" id="r_a29d77846f70058937bf3addc28bf62fb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a29d77846f70058937bf3addc28bf62fb">TEST</a> (LOG_LerArquivosMonitoradosTest, T20_ArquivoInexistente)</td></tr>
+<tr class="memitem:adc30d1b5b5be8de618dc62365cf5d76a" id="r_adc30d1b5b5be8de618dc62365cf5d76a"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#adc30d1b5b5be8de618dc62365cf5d76a">TEST</a> (LOG_LerArquivoLogTest, T21_ArquivoComRegistros)</td></tr>
+<tr class="memitem:a9b87534701d8dbb5b1ad3fe7bea108af" id="r_a9b87534701d8dbb5b1ad3fe7bea108af"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9b87534701d8dbb5b1ad3fe7bea108af">TEST</a> (LOG_LerArquivoLogTest, T22_ArquivoInexistente)</td></tr>
+<tr class="memitem:a69483621f95e37a234fcc2c99578a7eb" id="r_a69483621f95e37a234fcc2c99578a7eb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a69483621f95e37a234fcc2c99578a7eb">TEST</a> (LOG_LerArquivoLogTest, T23_ArquivoComLinhasMistas)</td></tr>
+<tr class="memitem:a4396e0b775fa82f762ad4795dbe7ee10" id="r_a4396e0b775fa82f762ad4795dbe7ee10"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a4396e0b775fa82f762ad4795dbe7ee10">TEST</a> (LOG_EscreverArquivoLogTest, T24_EscritaReleitura)</td></tr>
+<tr class="memitem:a9512e29d3e6add776a81333b184f739c" id="r_a9512e29d3e6add776a81333b184f739c"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a9512e29d3e6add776a81333b184f739c">TEST</a> (LOG_ProcessarArquivoTest, T25_ProcessarSemTotalPrevio)</td></tr>
+<tr class="memitem:aff92ca537c0a739280365ad2c2abecfb" id="r_aff92ca537c0a739280365ad2c2abecfb"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#aff92ca537c0a739280365ad2c2abecfb">TEST</a> (LOG_ProcessarArquivoTest, T26_ProcessarComTotalPrevio)</td></tr>
+<tr class="memitem:abce4d5bc934e5d356480b2646624ba50" id="r_abce4d5bc934e5d356480b2646624ba50"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#abce4d5bc934e5d356480b2646624ba50">TEST</a> (LOG_ProcessarArquivoTest, T27_ArquivoInexistente)</td></tr>
+<tr class="memitem:ae12599df76b99f7a01e8bc48ca72ff2b" id="r_ae12599df76b99f7a01e8bc48ca72ff2b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae12599df76b99f7a01e8bc48ca72ff2b">TEST</a> (LOG_ProcessarArquivoTest, T30_MergeComTerceiroArquivo)</td></tr>
+<tr class="memitem:a21b49074666a152a8aaad56ba32ea757" id="r_a21b49074666a152a8aaad56ba32ea757"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a21b49074666a152a8aaad56ba32ea757">TEST</a> (LOG_MonitorarLogsTest, T28_MonitoramentoCompleto)</td></tr>
+<tr class="memitem:a13a488cfd2bfa5559245280354e93be4" id="r_a13a488cfd2bfa5559245280354e93be4"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a13a488cfd2bfa5559245280354e93be4">TEST</a> (LOG_MonitorarLogsTest, T29_ConfigInexistente)</td></tr>
+<tr class="memitem:a3c04138a5bfe5d72780bb7e82a18e627" id="r_a3c04138a5bfe5d72780bb7e82a18e627"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a3c04138a5bfe5d72780bb7e82a18e627">main</a> (int argc, char **argv)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Testes TDD para o sistema de monitoramento de logs. </p>
+<p>Testes desenvolvidos seguindo metodologia TDD (Red-Green-Refactor). Cada teste corresponde a uma coluna da tabela de decisão e cobre expressões regulares de caixa aberta.</p>
+<p>Tabela de Decisão usada: +--------------------&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+ | Condições | T1 | T2 | T3 | T4 | T5 | T6 | T7 | T8 | +--------------------&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+ | Numero &lt; 0 | S | N | S | N | - | - | - | - | | dimASCII suficiente | S | S | N | N | - | - | - | - | | pNumASCII != NULL | S | S | S | S | N | - | - | - | | Linha formato válido | - | - | - | - | - | S | N | - | | Arquivo existe | - | - | - | - | - | - | - | S | +--------------------&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+-&mdash;+</p>
+<p>Expressões regulares testadas (caixa aberta / cobertura): RE1: ^-?\d+$ → BCD_ConverterLongASCII saída RE2: ^\d{1,2}\/\d{1,2}\/\d{4} \d{2}:\d{2}:\d{2} .+$ → LOG_ParseLinha RE3: ^total_ → LOG_ObterNomeArquivoTotal</p>
+<p>Disciplina: Técnicas de Programação 2 – CIC0198 – UnB </p><dl class="section author"><dt>Autor</dt><dd>Valeria Guevara </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>17/05/2026 </dd></dl>
+
+<p class="definition">Definido no ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a0c35fbfece61dbd8eec946e92747aa00" name="a0c35fbfece61dbd8eec946e92747aa00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c35fbfece61dbd8eec946e92747aa00">&#9670;&#160;</a></span>ArquivoExiste()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ArquivoExiste </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminho</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verifica se um arquivo existe. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminho</td><td>Caminho do arquivo. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>true se existir. </dd></dl>
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00066">66</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="testa__monitora__logs_8cpp_source.html#l00529">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00702">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00561">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="ab7960ca0121e398b4c55307c7f338de4" name="ab7960ca0121e398b4c55307c7f338de4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7960ca0121e398b4c55307c7f338de4">&#9670;&#160;</a></span>CriarArquivoTemp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CriarArquivoTemp </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminho</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>conteudo</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cria um arquivo temporário com conteúdo fornecido. </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminho</td><td>Caminho do arquivo a criar. </td></tr>
+    <tr><td class="paramname">conteudo</td><td>Conteúdo a escrever no arquivo. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00046">46</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="testa__monitora__logs_8cpp_source.html#l00471">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00504">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00432">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00702">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00561">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00598">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00650">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="a3c04138a5bfe5d72780bb7e82a18e627" name="a3c04138a5bfe5d72780bb7e82a18e627"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c04138a5bfe5d72780bb7e82a18e627">&#9670;&#160;</a></span>main()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int main </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>argc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char **</td>          <td class="paramname"><span class="paramname"><em>argv</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00743">743</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a46467fe20f2499331563e161d802db22" name="a46467fe20f2499331563e161d802db22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46467fe20f2499331563e161d802db22">&#9670;&#160;</a></span>RemoverArquivo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void RemoverArquivo </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>caminho</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove um arquivo (ignora erro se não existir). </p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">caminho</td><td>Caminho do arquivo a remover. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">57</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referenciado por <a class="el" href="testa__monitora__logs_8cpp_source.html#l00529">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00471">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00504">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00432">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00702">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00561">TEST()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00598">TEST()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00650">TEST()</a>.</p>
+
+</div>
+</div>
+<a id="ac779dfdca8850527c198327a82560c85" name="ac779dfdca8850527c198327a82560c85"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac779dfdca8850527c198327a82560c85">&#9670;&#160;</a></span>TEST() <span class="overload">[1/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">BCD_ConverterLongASCIITest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T1_NumeroNegativoSuficiente</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00083">83</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00029">BCD_ConverterLongASCII()</a>.</p>
+
+</div>
+</div>
+<a id="aef8dcff98d39f648868985f8553dee8c" name="aef8dcff98d39f648868985f8553dee8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef8dcff98d39f648868985f8553dee8c">&#9670;&#160;</a></span>TEST() <span class="overload">[2/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">BCD_ConverterLongASCIITest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T2_NumeroPositivoSuficiente</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00109">109</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00029">BCD_ConverterLongASCII()</a>.</p>
+
+</div>
+</div>
+<a id="a40dc7e17fb87cac9f35d679670f91b25" name="a40dc7e17fb87cac9f35d679670f91b25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40dc7e17fb87cac9f35d679670f91b25">&#9670;&#160;</a></span>TEST() <span class="overload">[3/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">BCD_ConverterLongASCIITest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T3_NumeroNegativoTruncado</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00135">135</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00029">BCD_ConverterLongASCII()</a>.</p>
+
+</div>
+</div>
+<a id="a4dc048b4f3afce74c5c1771c53e71691" name="a4dc048b4f3afce74c5c1771c53e71691"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dc048b4f3afce74c5c1771c53e71691">&#9670;&#160;</a></span>TEST() <span class="overload">[4/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">BCD_ConverterLongASCIITest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T4_NumeroPositivoTruncado</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00156">156</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00029">BCD_ConverterLongASCII()</a>.</p>
+
+</div>
+</div>
+<a id="ae586e5a3d4107dc14460338f787994a6" name="ae586e5a3d4107dc14460338f787994a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae586e5a3d4107dc14460338f787994a6">&#9670;&#160;</a></span>TEST() <span class="overload">[5/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">BCD_ConverterLongASCIITest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T5_Zero</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00176">176</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00029">BCD_ConverterLongASCII()</a>.</p>
+
+</div>
+</div>
+<a id="a859b7eab9dc27ca694d2e21848b8d645" name="a859b7eab9dc27ca694d2e21848b8d645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a859b7eab9dc27ca694d2e21848b8d645">&#9670;&#160;</a></span>TEST() <span class="overload">[6/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_CompararRegistrosTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T13_MaisAntigoMenor</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00322">322</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>.</p>
+
+</div>
+</div>
+<a id="acf9e595ce47984e0740523185cc1dcdd" name="acf9e595ce47984e0740523185cc1dcdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf9e595ce47984e0740523185cc1dcdd">&#9670;&#160;</a></span>TEST() <span class="overload">[7/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_CompararRegistrosTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T14_MesmaDataHora</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00335">335</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>.</p>
+
+</div>
+</div>
+<a id="a2e5f79cee9a96f690f5532d3beb1b6dd" name="a2e5f79cee9a96f690f5532d3beb1b6dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e5f79cee9a96f690f5532d3beb1b6dd">&#9670;&#160;</a></span>TEST() <span class="overload">[8/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_CompararRegistrosTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T15_MaisNovoMaior</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00348">348</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>.</p>
+
+</div>
+</div>
+<a id="a4396e0b775fa82f762ad4795dbe7ee10" name="a4396e0b775fa82f762ad4795dbe7ee10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4396e0b775fa82f762ad4795dbe7ee10">&#9670;&#160;</a></span>TEST() <span class="overload">[9/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_EscreverArquivoLogTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T24_EscritaReleitura</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00529">529</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="testa__monitora__logs_8cpp_source.html#l00066">ArquivoExiste()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00227">LOG_EscreverArquivoLog()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">RemoverArquivo()</a>.</p>
+
+</div>
+</div>
+<a id="adc30d1b5b5be8de618dc62365cf5d76a" name="adc30d1b5b5be8de618dc62365cf5d76a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc30d1b5b5be8de618dc62365cf5d76a">&#9670;&#160;</a></span>TEST() <span class="overload">[10/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_LerArquivoLogTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T21_ArquivoComRegistros</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00471">471</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="testa__monitora__logs_8cpp_source.html#l00046">CriarArquivoTemp()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">RemoverArquivo()</a>.</p>
+
+</div>
+</div>
+<a id="a9b87534701d8dbb5b1ad3fe7bea108af" name="a9b87534701d8dbb5b1ad3fe7bea108af"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b87534701d8dbb5b1ad3fe7bea108af">&#9670;&#160;</a></span>TEST() <span class="overload">[11/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_LerArquivoLogTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T22_ArquivoInexistente</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00492">492</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a>.</p>
+
+</div>
+</div>
+<a id="a69483621f95e37a234fcc2c99578a7eb" name="a69483621f95e37a234fcc2c99578a7eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69483621f95e37a234fcc2c99578a7eb">&#9670;&#160;</a></span>TEST() <span class="overload">[12/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_LerArquivoLogTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T23_ArquivoComLinhasMistas</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00504">504</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="testa__monitora__logs_8cpp_source.html#l00046">CriarArquivoTemp()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">RemoverArquivo()</a>.</p>
+
+</div>
+</div>
+<a id="a82c297c3978daad971ed511a6281edb2" name="a82c297c3978daad971ed511a6281edb2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82c297c3978daad971ed511a6281edb2">&#9670;&#160;</a></span>TEST() <span class="overload">[13/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_LerArquivosMonitoradosTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T19_ArquivoValido</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00432">432</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="testa__monitora__logs_8cpp_source.html#l00046">CriarArquivoTemp()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00062">LOG_LerArquivosMonitorados()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">RemoverArquivo()</a>.</p>
+
+</div>
+</div>
+<a id="a29d77846f70058937bf3addc28bf62fb" name="a29d77846f70058937bf3addc28bf62fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29d77846f70058937bf3addc28bf62fb">&#9670;&#160;</a></span>TEST() <span class="overload">[14/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_LerArquivosMonitoradosTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T20_ArquivoInexistente</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00455">455</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00062">LOG_LerArquivosMonitorados()</a>.</p>
+
+</div>
+</div>
+<a id="a7daad313804c75b161291950799d1962" name="a7daad313804c75b161291950799d1962"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7daad313804c75b161291950799d1962">&#9670;&#160;</a></span>TEST() <span class="overload">[15/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_MergeOrdenadoTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T16_MergeDoisVetores</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00365">365</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a> e <a class="el" href="monitora__logs_8cpp_source.html#l00179">LOG_MergeOrdenado()</a>.</p>
+
+</div>
+</div>
+<a id="a60c4485ee1a7c1b5556d7be65b4ac515" name="a60c4485ee1a7c1b5556d7be65b4ac515"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60c4485ee1a7c1b5556d7be65b4ac515">&#9670;&#160;</a></span>TEST() <span class="overload">[16/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_MergeOrdenadoTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T17_BaseVazia</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00394">394</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00179">LOG_MergeOrdenado()</a>.</p>
+
+</div>
+</div>
+<a id="a8ec8461e0de55d052177c73a2bcaefd7" name="a8ec8461e0de55d052177c73a2bcaefd7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ec8461e0de55d052177c73a2bcaefd7">&#9670;&#160;</a></span>TEST() <span class="overload">[17/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_MergeOrdenadoTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T18_NovosVazios</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00411">411</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00179">LOG_MergeOrdenado()</a>.</p>
+
+</div>
+</div>
+<a id="a21b49074666a152a8aaad56ba32ea757" name="a21b49074666a152a8aaad56ba32ea757"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21b49074666a152a8aaad56ba32ea757">&#9670;&#160;</a></span>TEST() <span class="overload">[18/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_MonitorarLogsTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T28_MonitoramentoCompleto</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00702">702</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="testa__monitora__logs_8cpp_source.html#l00066">ArquivoExiste()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00046">CriarArquivoTemp()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00279">LOG_MonitorarLogs()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">RemoverArquivo()</a>.</p>
+
+</div>
+</div>
+<a id="a13a488cfd2bfa5559245280354e93be4" name="a13a488cfd2bfa5559245280354e93be4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13a488cfd2bfa5559245280354e93be4">&#9670;&#160;</a></span>TEST() <span class="overload">[19/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_MonitorarLogsTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T29_ConfigInexistente</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00732">732</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00279">LOG_MonitorarLogs()</a>.</p>
+
+</div>
+</div>
+<a id="ac778e1ee0d397c89eb27fdb387985fad" name="ac778e1ee0d397c89eb27fdb387985fad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac778e1ee0d397c89eb27fdb387985fad">&#9670;&#160;</a></span>TEST() <span class="overload">[20/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ObterNomeArquivoTotalTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T10_CaminhoComBarraNormal</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00283">283</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00127">LOG_ObterNomeArquivoTotal()</a>.</p>
+
+</div>
+</div>
+<a id="a91f93ddee74ed880d6a5db867fc31b74" name="a91f93ddee74ed880d6a5db867fc31b74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91f93ddee74ed880d6a5db867fc31b74">&#9670;&#160;</a></span>TEST() <span class="overload">[21/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ObterNomeArquivoTotalTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T11_SemDiretorio</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00295">295</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00127">LOG_ObterNomeArquivoTotal()</a>.</p>
+
+</div>
+</div>
+<a id="a67880b919545d8ea824c7acd6faa3a57" name="a67880b919545d8ea824c7acd6faa3a57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67880b919545d8ea824c7acd6faa3a57">&#9670;&#160;</a></span>TEST() <span class="overload">[22/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ObterNomeArquivoTotalTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T12_CaminhoMinimo</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00307">307</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00127">LOG_ObterNomeArquivoTotal()</a>.</p>
+
+</div>
+</div>
+<a id="acaf6f4c1f3516967fd7f2f4e887728c5" name="acaf6f4c1f3516967fd7f2f4e887728c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acaf6f4c1f3516967fd7f2f4e887728c5">&#9670;&#160;</a></span>TEST() <span class="overload">[23/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ObterNomeArquivoTotalTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T9_CaminhoComBarra</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00266">266</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00127">LOG_ObterNomeArquivoTotal()</a>.</p>
+
+</div>
+</div>
+<a id="a955a811126e81519fd9a79472f317c5f" name="a955a811126e81519fd9a79472f317c5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a955a811126e81519fd9a79472f317c5f">&#9670;&#160;</a></span>TEST() <span class="overload">[24/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ParseLinhaTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T6_LinhaFormatoValido</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00199">199</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8hpp_source.html#l00033">RegistroLog::ano</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00031">RegistroLog::dia</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00034">RegistroLog::hora</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00037">RegistroLog::mensagem</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00032">RegistroLog::mes</a>, <a class="el" href="monitora__logs_8hpp_source.html#l00035">RegistroLog::minuto</a> e <a class="el" href="monitora__logs_8hpp_source.html#l00036">RegistroLog::segundo</a>.</p>
+
+</div>
+</div>
+<a id="a2f562f6f127d99d8f4d8a94f72745144" name="a2f562f6f127d99d8f4d8a94f72745144"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f562f6f127d99d8f4d8a94f72745144">&#9670;&#160;</a></span>TEST() <span class="overload">[25/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ParseLinhaTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T7_LinhaFormatoInvalido</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00228">228</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a>.</p>
+
+</div>
+</div>
+<a id="ad0ac73cf5d649f9b21e480f6dbe523a1" name="ad0ac73cf5d649f9b21e480f6dbe523a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0ac73cf5d649f9b21e480f6dbe523a1">&#9670;&#160;</a></span>TEST() <span class="overload">[26/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ParseLinhaTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T8_DataInvalida</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00248">248</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00071">LOG_ParseLinha()</a>.</p>
+
+</div>
+</div>
+<a id="a9512e29d3e6add776a81333b184f739c" name="a9512e29d3e6add776a81333b184f739c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9512e29d3e6add776a81333b184f739c">&#9670;&#160;</a></span>TEST() <span class="overload">[27/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ProcessarArquivoTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T25_ProcessarSemTotalPrevio</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00561">561</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="testa__monitora__logs_8cpp_source.html#l00066">ArquivoExiste()</a>, <a class="el" href="testa__monitora__logs_8cpp_source.html#l00046">CriarArquivoTemp()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">RemoverArquivo()</a>.</p>
+
+</div>
+</div>
+<a id="aff92ca537c0a739280365ad2c2abecfb" name="aff92ca537c0a739280365ad2c2abecfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff92ca537c0a739280365ad2c2abecfb">&#9670;&#160;</a></span>TEST() <span class="overload">[28/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ProcessarArquivoTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T26_ProcessarComTotalPrevio</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00598">598</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="testa__monitora__logs_8cpp_source.html#l00046">CriarArquivoTemp()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">RemoverArquivo()</a>.</p>
+
+</div>
+</div>
+<a id="abce4d5bc934e5d356480b2646624ba50" name="abce4d5bc934e5d356480b2646624ba50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abce4d5bc934e5d356480b2646624ba50">&#9670;&#160;</a></span>TEST() <span class="overload">[29/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ProcessarArquivoTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T27_ArquivoInexistente</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00638">638</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a>.</p>
+
+</div>
+</div>
+<a id="ae12599df76b99f7a01e8bc48ca72ff2b" name="ae12599df76b99f7a01e8bc48ca72ff2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae12599df76b99f7a01e8bc48ca72ff2b">&#9670;&#160;</a></span>TEST() <span class="overload">[30/30]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TEST </td>
+          <td>(</td>
+          <td class="paramtype">LOG_ProcessarArquivoTest</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T30_MergeComTerceiroArquivo</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definido na linha <a class="el" href="testa__monitora__logs_8cpp_source.html#l00650">650</a> do ficheiro <a class="el" href="testa__monitora__logs_8cpp_source.html">testa_monitora_logs.cpp</a>.</p>
+
+<p class="reference">Referências <a class="el" href="testa__monitora__logs_8cpp_source.html#l00046">CriarArquivoTemp()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00160">LOG_CompararRegistros()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00202">LOG_LerArquivoLog()</a>, <a class="el" href="monitora__logs_8cpp_source.html#l00250">LOG_ProcessarArquivo()</a> e <a class="el" href="testa__monitora__logs_8cpp_source.html#l00057">RemoverArquivo()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a href="testa__monitora__logs_8cpp.html">testa_monitora_logs.cpp</a></li>
+    <li class="footer">Gerado em <span class="timestamp"></span> para Sistema de Monitoramento de Logs por <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.17.0 </li>
+  </ul>
+</div>
+</body>
+</html>
