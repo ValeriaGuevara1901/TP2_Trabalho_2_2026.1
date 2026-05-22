@@ -240,6 +240,15 @@ TEST(LOG_ParseLinhaTest, T7_LinhaFormatoInvalido) {
         << "Parse deve retornar false para linha com formato inválido";
 }
 
+// ---------------------------------------------------------------------------
+// TESTE 8 (T8): Linha com data inválida (dia = 0)
+// Objetivo: Verifica que data semanticamente inválida é rejeitada.
+// Passa quando: retorna false
+// ---------------------------------------------------------------------------
+TEST(LOG_ParseLinhaTest, T8_DataInvalida) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
