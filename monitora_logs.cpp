@@ -193,3 +193,28 @@ std::vector<RegistroLog> LOG_MergeOrdenado(
 
     return resultado;
 }
+
+// ---------------------------------------------------------------------------
+// LOG_LerArquivoLog
+// ---------------------------------------------------------------------------
+
+std::vector<RegistroLog> LOG_LerArquivoLog(const std::string& caminhoLog) {
+    std::vector<RegistroLog> registros;
+
+    std::ifstream arquivo(caminhoLog);
+    if (!arquivo.is_open()) {
+        return registros;  // Arquivo não existe ou não pode ser aberto
+    }
+
+    std::string linha;
+    while (std::getline(arquivo, linha)) {
+        RegistroLog reg;
+        if (LOG_ParseLinha(linha, &reg)) {
+            registros.push_back(reg);
+        }
+        // Linhas inválidas são ignoradas
+    }
+
+    arquivo.close();
+    return registros;
+}

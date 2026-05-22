@@ -122,5 +122,18 @@ std::vector<RegistroLog> LOG_MergeOrdenado(
     const std::vector<RegistroLog>& base,
     const std::vector<RegistroLog>& novos);
 
+/***************************************************************************
+ * Função: LOG_LerArquivoLog
+ * Descrição
+ *   Lê um arquivo de log e retorna um vetor com todos os registros válidos.
+ *   Linhas malformadas são ignoradas.
+ * Parâmetros
+ *   caminhoLog - caminho do arquivo de log a ler
+ * Valor retornado
+ *   Vetor de RegistroLog com os registros parseados.
+ *   Vetor vazio se o arquivo não existir ou não tiver registros válidos.
+ ***************************************************************************/
+std::vector<RegistroLog> LOG_LerArquivoLog(const std::string& caminhoLog);
+
 
 #endif  // MONITORA_LOGS_HPP_
