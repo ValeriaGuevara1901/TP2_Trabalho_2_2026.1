@@ -197,7 +197,26 @@ TEST(BCD_ConverterLongASCIITest, T5_Zero) {
 // Passa quando: retorna true e campos corretos
 // ---------------------------------------------------------------------------
 TEST(LOG_ParseLinhaTest, T6_LinhaFormatoValido) {
-   //Teste sete sem nada teste 6
+    const std::string linha = "16/1/2026 13:27:46 Este é um exemplo de log";
+
+    // Verifica expressão regular RE2 antes do parse
+    std::regex re2(R"(^\d{1,2}/\d{1,2}/\d{4} \d{2}:\d{2}:\d{2} .+$)");
+    EXPECT_TRUE(std::regex_match(linha, re2))
+        << "Linha de teste deve casar com RE2";
+
+    RegistroLog reg;
+    bool ok = LOG_ParseLinha(linha, &reg);
+
+    EXPECT_TRUE(ok)
+        << "Parse deve retornar true para linha válida";
+    EXPECT_EQ(reg.dia, 16)   << "Dia deve ser 16";
+    EXPECT_EQ(reg.mes, 1)    << "Mês deve ser 1";
+    EXPECT_EQ(reg.ano, 2026) << "Ano deve ser 2026";
+    EXPECT_EQ(reg.hora, 13)  << "Hora deve ser 13";
+    EXPECT_EQ(reg.minuto, 27) << "Minuto deve ser 27";
+    EXPECT_EQ(reg.segundo, 46) << "Segundo deve ser 46";
+    EXPECT_STREQ(reg.mensagem, "Este é um exemplo de log")
+        << "Mensagem deve ser copiada corretamente";
 }
 
 
