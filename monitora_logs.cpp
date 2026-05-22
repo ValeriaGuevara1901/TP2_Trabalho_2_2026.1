@@ -60,6 +60,13 @@ char* BCD_ConverterLongASCII(int dimASCII,
 
 std::vector<std::string> LOG_LerArquivosMonitorados(
         const std::string& caminhoArquivosLogs) {
-    //funcao sem nada
+    
 }
 
+// ---------------------------------------------------------------------------
+// LOG_ParseLinha
+// ---------------------------------------------------------------------------
+
+bool LOG_ParseLinha(const std::string& linha, RegistroLog* registro) {
+//funcao 7 sem nada
+}
