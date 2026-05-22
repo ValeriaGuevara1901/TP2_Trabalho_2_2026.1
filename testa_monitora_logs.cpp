@@ -226,7 +226,18 @@ TEST(LOG_ParseLinhaTest, T6_LinhaFormatoValido) {
 // Passa quando: retorna false e estrutura não é preenchida com lixo perigoso
 // ---------------------------------------------------------------------------
 TEST(LOG_ParseLinhaTest, T7_LinhaFormatoInvalido) {
-    // TODO: implementar teste
+    const std::string linha = "isso nao e um log valido";
+
+    // Verifica que NÃO casa com RE2
+    std::regex re2(R"(^\d{1,2}/\d{1,2}/\d{4} \d{2}:\d{2}:\d{2} .+$)");
+    EXPECT_FALSE(std::regex_match(linha, re2))
+        << "Linha inválida não deve casar com RE2";
+
+    RegistroLog reg;
+    bool ok = LOG_ParseLinha(linha, &reg);
+
+    EXPECT_FALSE(ok)
+        << "Parse deve retornar false para linha com formato inválido";
 }
 
 
