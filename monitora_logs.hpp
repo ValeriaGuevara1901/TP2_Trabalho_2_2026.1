@@ -37,141 +37,131 @@ struct RegistroLog {
     char mensagem[MAX_MSG_LOG]; /**< Mensagem de log */
 };
 
-/***************************************************************************
- * Função: BCD_ConverterLongASCII
- * Descrição
- *   Converte um inteiro long para um string ASCII.
- *   O string resultado estará alinhado à esquerda no buffer de dimASCII
- *   caracteres fornecido.
- * Parâmetros
- *   dimASCII  - número máximo de caracteres do string inclusive
- *               o caractere zero terminal.
- *   pNumASCII - ponteiro para o espaço que receberá o string.
- *               Será truncado à direita caso o string convertido
- *               exceda a dimensão limite. O primeiro caractere
- *               será '-' se e somente se número < 0.
- *   Numero    - inteiro a ser convertido para string.
- * Valor retornado
- *   Retorna pNumASCII com o número convertido, ou NULL se pNumASCII==NULL
- *   ou dimASCII < 2.
- * Assertiva de entrada
- *   pNumASCII != NULL
- *   dimensao( *pNumASCII ) >= dimASCII
- *   dimASCII >= max( 3 , 2 + log10( abs( Numero ))
- ***************************************************************************/
+/**
+ * @brief Converte um inteiro long para string ASCII.
+ * 
+ * O string resultado estará alinhado à esquerda no buffer fornecido.
+ * Será truncado à direita caso o string convertido exceda a dimensão limite.
+ * O primeiro caractere será '-' se e somente se o número for negativo.
+ * 
+ * @param dimASCII Número máximo de caracteres do string, incluindo o '\0' terminal.
+ * @param pNumASCII Ponteiro para o buffer que receberá o string convertido.
+ * @param Numero Inteiro a ser convertido para string.
+ * @return Retorna pNumASCII com o número convertido, ou NULL se pNumASCII==NULL
+ *         ou dimASCII < 2.
+ * @pre pNumASCII != NULL
+ * @pre dimensao(*pNumASCII) >= dimASCII
+ * @pre dimASCII >= max(3, 2 + log10(abs(Numero)))
+ */
 char* BCD_ConverterLongASCII(int dimASCII,
                               char* pNumASCII,
                               long Numero);
 
-/***************************************************************************
- * Função: LOG_LerArquivosMonitorados
- * Descrição
- *   Lê o arquivo logs.txt e retorna a lista de caminhos dos arquivos
- *   de log a serem monitorados.
- * Parâmetros
- *   caminhoArquivosLogs - caminho para o arquivo logs.txt
- * Valor retornado
- *   Vetor de strings com os caminhos dos arquivos monitorados.
- *   Vetor vazio se o arquivo não existir ou estiver vazio.
- * Assertiva de entrada
- *   caminhoArquivosLogs != NULL (string não vazia)
- ***************************************************************************/
+/**
+ * @brief Lê a lista de arquivos de log a serem monitorados.
+ * 
+ * Lê o arquivo logs.txt e retorna a lista de caminhos dos arquivos
+ * de log a serem monitorados.
+ * 
+ * @param caminhoArquivosLogs Caminho para o arquivo logs.txt.
+ * @return Vetor de strings com os caminhos dos arquivos monitorados.
+ *         Retorna vetor vazio se o arquivo não existir ou estiver vazio.
+ * @pre caminhoArquivosLogs não pode ser vazio.
+ */
 std::vector<std::string> LOG_LerArquivosMonitorados(
     const std::string& caminhoArquivosLogs);
 
-/***************************************************************************
- * Função: LOG_ObterNomeArquivoTotal
- * Descrição
- *   Dado o caminho de um arquivo de log, retorna o caminho do arquivo
- *   total correspondente, prefixando "total_" ao nome do arquivo.
- * Parâmetros
- *   caminhoLog - caminho do arquivo de log original
- * Valor retornado
- *   Caminho do arquivo total (ex: "logs/total_log1.txt")
- * Assertiva de entrada
- *   caminhoLog não vazio
- ***************************************************************************/
+/**
+ * @brief Interpreta uma linha de log e preenche a estrutura RegistroLog.
+ * 
+ * Formato esperado: "DD/MM/AAAA HH:MM:SS mensagem"
+ * 
+ * @param linha String com a linha de log a ser interpretada.
+ * @param registro Ponteiro para a estrutura que receberá os dados.
+ * @return true se a linha foi interpretada com sucesso, false se o formato for inválido.
+ * @pre registro != NULL
+ * @pre linha não pode ser vazia.
+ */
+bool LOG_ParseLinha(const std::string& linha, RegistroLog* registro);
+
+/**
+ * @brief Obtém o caminho do arquivo total correspondente a um arquivo de log.
+ * 
+ * Dado o caminho de um arquivo de log, retorna o caminho do arquivo
+ * total correspondente, prefixando "total_" ao nome do arquivo.
+ * 
+ * @param caminhoLog Caminho do arquivo de log original.
+ * @return Caminho do arquivo total (ex: "logs/total_log1.txt").
+ * @pre caminhoLog não pode ser vazio.
+ */
 std::string LOG_ObterNomeArquivoTotal(const std::string& caminhoLog);
 
-/***************************************************************************
- * Função: LOG_CompararRegistros
- * Descrição
- *   Compara dois registros de log pela data/hora.
- * Parâmetros
- *   a - primeiro registro
- *   b - segundo registro
- * Valor retornado
- *   < 0 se a < b (a é mais antigo)
- *   = 0 se a == b (mesma data/hora)
- *   > 0 se a > b (a é mais recente)
- ***************************************************************************/
+/**
+ * @brief Compara dois registros de log pela data/hora.
+ * 
+ * @param a Primeiro registro a comparar.
+ * @param b Segundo registro a comparar.
+ * @return Valor negativo se a < b (a é mais antigo),
+ *         zero se a == b (mesma data/hora),
+ *         valor positivo se a > b (a é mais recente).
+ */
 int LOG_CompararRegistros(const RegistroLog& a, const RegistroLog& b);
 
-/***************************************************************************
- * Função: LOG_MergeOrdenado
- * Descrição
- *   Combina dois vetores de registros de log em um único vetor ordenado
- *   cronologicamente.
- * Parâmetros
- *   base  - vetor com registros existentes (pode ser vazio)
- *   novos - vetor com novos registros a adicionar (pode ser vazio)
- * Valor retornado
- *   Vetor com todos os registros ordenados por data/hora
- ***************************************************************************/
+/**
+ * @brief Combina dois vetores de registros de log em um único vetor ordenado.
+ * 
+ * @param base Vetor com registros existentes (pode ser vazio).
+ * @param novos Vetor com novos registros a adicionar (pode ser vazio).
+ * @return Vetor com todos os registros ordenados cronologicamente.
+ */
 std::vector<RegistroLog> LOG_MergeOrdenado(
     const std::vector<RegistroLog>& base,
     const std::vector<RegistroLog>& novos);
 
-/***************************************************************************
- * Função: LOG_LerArquivoLog
- * Descrição
- *   Lê um arquivo de log e retorna um vetor com todos os registros válidos.
- *   Linhas malformadas são ignoradas.
- * Parâmetros
- *   caminhoLog - caminho do arquivo de log a ler
- * Valor retornado
- *   Vetor de RegistroLog com os registros parseados.
- *   Vetor vazio se o arquivo não existir ou não tiver registros válidos.
- ***************************************************************************/
+/**
+ * @brief Lê um arquivo de log e retorna os registros válidos.
+ * 
+ * Linhas malformadas são ignoradas silenciosamente.
+ * 
+ * @param caminhoLog Caminho do arquivo de log a ler.
+ * @return Vetor de RegistroLog com os registros parseados.
+ *         Retorna vetor vazio se o arquivo não existir.
+ */
 std::vector<RegistroLog> LOG_LerArquivoLog(const std::string& caminhoLog);
 
-/***************************************************************************
- * Função: LOG_EscreverArquivoLog
- * Descrição
- *   Escreve um vetor de registros de log em um arquivo, no formato
- *   "DD/MM/AAAA HH:MM:SS mensagem".
- * Parâmetros
- *   caminhoLog - caminho do arquivo a escrever
- *   registros  - vetor de registros a escrever
- * Valor retornado
- *   true se a escrita foi bem-sucedida, false caso contrário
- ***************************************************************************/
+/**
+ * @brief Escreve registros de log em um arquivo.
+ * 
+ * Formato de saída: "DD/MM/AAAA HH:MM:SS mensagem".
+ * 
+ * @param caminhoLog Caminho do arquivo a escrever.
+ * @param registros Vetor de registros a escrever.
+ * @return true se a escrita foi bem-sucedida, false caso contrário.
+ */
 bool LOG_EscreverArquivoLog(const std::string& caminhoLog,
                             const std::vector<RegistroLog>& registros);
 
-/***************************************************************************
- * Função: LOG_ProcessarArquivo
- * Descrição
- *   Processa um arquivo de log: lê os registros, faz merge com o arquivo
- *   total_ existente (se houver) e escreve o resultado ordenado.
- * Parâmetros
- *   caminhoLog - caminho do arquivo de log a processar
- * Valor retornado
- *   true se o processamento foi bem-sucedido, false caso contrário
- ***************************************************************************/
+/**
+ * @brief Processa um arquivo de log e atualiza o arquivo total.
+ * 
+ * Lê os registros do arquivo de log, faz merge com o arquivo
+ * total_ existente (se houver) e escreve o resultado ordenado.
+ * 
+ * @param caminhoLog Caminho do arquivo de log a processar.
+ * @return true se o processamento foi bem-sucedido, false caso contrário.
+ */
 bool LOG_ProcessarArquivo(const std::string& caminhoLog);
 
-/***************************************************************************
- * Função: LOG_MonitorarLogs
- * Descrição
- *   Lê a lista de arquivos a monitorar do arquivo de configuração e
- *   processa cada um deles.
- * Parâmetros
- *   caminhoConfig - caminho do arquivo de configuração (logs.txt)
- * Valor retornado
- *   Número de arquivos processados com sucesso, ou -1 se o arquivo
- *   de configuração não existir.
- ***************************************************************************/
+/**
+ * @brief Monitora e processa todos os arquivos de log listados na configuração.
+ * 
+ * Lê a lista de arquivos a monitorar do arquivo de configuração e
+ * processa cada um deles, gerando/atualizando os arquivos total_.
+ * 
+ * @param caminhoConfig Caminho do arquivo de configuração (logs.txt).
+ * @return Número de arquivos processados com sucesso, ou -1 se o arquivo
+ *         de configuração não existir.
+ */
 int LOG_MonitorarLogs(const std::string& caminhoConfig);
 
 
