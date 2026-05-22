@@ -320,7 +320,11 @@ TEST(LOG_ObterNomeArquivoTotalTest, T12_CaminhoMinimo) {
 // Passa quando: retorna valor negativo
 // ---------------------------------------------------------------------------
 TEST(LOG_CompararRegistrosTest, T13_MaisAntigoMenor) {
-    // TODO: implementar teste
+    RegistroLog a = {16, 1, 2026, 13, 27, 46, "msg a"};
+    RegistroLog b = {20, 1, 2026, 17, 45, 38, "msg b"};
+
+    EXPECT_LT(LOG_CompararRegistros(a, b), 0)
+        << "Registro mais antigo deve ser menor";
 }
 
 // ---------------------------------------------------------------------------
@@ -329,7 +333,11 @@ TEST(LOG_CompararRegistrosTest, T13_MaisAntigoMenor) {
 // Passa quando: retorna 0
 // ---------------------------------------------------------------------------
 TEST(LOG_CompararRegistrosTest, T14_MesmaDataHora) {
-    // TODO: implementar teste
+    RegistroLog a = {16, 1, 2026, 13, 27, 46, "msg a"};
+    RegistroLog b = {16, 1, 2026, 13, 27, 46, "msg b"};
+
+    EXPECT_EQ(LOG_CompararRegistros(a, b), 0)
+        << "Mesma data/hora deve retornar 0";
 }
 
 // ---------------------------------------------------------------------------
@@ -338,7 +346,11 @@ TEST(LOG_CompararRegistrosTest, T14_MesmaDataHora) {
 // Passa quando: retorna valor positivo
 // ---------------------------------------------------------------------------
 TEST(LOG_CompararRegistrosTest, T15_MaisNovoMaior) {
-    // TODO: implementar teste
+    RegistroLog a = {20, 1, 2026, 17, 45, 38, "msg a"};
+    RegistroLog b = {16, 1, 2026, 13, 27, 46, "msg b"};
+
+    EXPECT_GT(LOG_CompararRegistros(a, b), 0)
+        << "Registro mais novo deve ser maior";
 }
 
 
