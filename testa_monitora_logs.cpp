@@ -700,7 +700,28 @@ TEST(LOG_ProcessarArquivoTest, T30_MergeComTerceiroArquivo) {
 // Passa quando: retorna número de arquivos processados com sucesso
 // ---------------------------------------------------------------------------
 TEST(LOG_MonitorarLogsTest, T28_MonitoramentoCompleto) {
-    // TODO: implementar teste
+    const std::string logsConfig = "test_logs_config.txt";
+    const std::string log1       = "test_mon_log1.txt";
+    const std::string total1     = "total_test_mon_log1.txt";
+
+    RemoverArquivo(logsConfig);
+    RemoverArquivo(log1);
+    RemoverArquivo(total1);
+
+    CriarArquivoTemp(log1,
+        "16/1/2026 13:27:46 Log monitoramento\n");
+    CriarArquivoTemp(logsConfig, log1 + "\n");
+
+    int processados = LOG_MonitorarLogs(logsConfig);
+
+    EXPECT_EQ(processados, 1)
+        << "Deve processar exatamente 1 arquivo com sucesso";
+    EXPECT_TRUE(ArquivoExiste(total1))
+        << "Arquivo total_ deve ter sido criado";
+
+    RemoverArquivo(logsConfig);
+    RemoverArquivo(log1);
+    RemoverArquivo(total1);
 }
 
 // ---------------------------------------------------------------------------
@@ -709,7 +730,9 @@ TEST(LOG_MonitorarLogsTest, T28_MonitoramentoCompleto) {
 // Passa quando: retorna -1
 // ---------------------------------------------------------------------------
 TEST(LOG_MonitorarLogsTest, T29_ConfigInexistente) {
-    // TODO: implementar teste
+    int resultado = LOG_MonitorarLogs("config_inexistente_xyz.txt");
+    EXPECT_EQ(resultado, -1)
+        << "Arquivo de configuração inexistente deve retornar -1";
 }
 
 
