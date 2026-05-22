@@ -548,6 +548,50 @@ TEST(LOG_EscreverArquivoLogTest, T24_EscritaReleitura) {
     RemoverArquivo(caminho);
 }
 
+// ===========================================================================
+// TESTES — LOG_ProcessarArquivo (integração)
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 25: Processar arquivo existente sem total prévio
+// Objetivo: Verifica que ao processar log existente pela primeira vez,
+//           um arquivo total_ é criado com os registros ordenados.
+// Passa quando: arquivo total_ é criado com conteúdo correto
+// ---------------------------------------------------------------------------
+TEST(LOG_ProcessarArquivoTest, T25_ProcessarSemTotalPrevio) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 26: Processar arquivo com total prévio (merge)
+// Objetivo: Verifica o merge: novos registros são inseridos na posição
+//           correta na ordenação do arquivo total existente.
+// Passa quando: arquivo total contém todos os registros ordenados
+// ---------------------------------------------------------------------------
+TEST(LOG_ProcessarArquivoTest, T26_ProcessarComTotalPrevio) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 27: Processar arquivo inexistente
+// Objetivo: Verifica retorno false quando o arquivo de log não existe.
+// Tabela de Decisão: Arquivo existe = N
+// Passa quando: retorna false sem crash
+// ---------------------------------------------------------------------------
+TEST(LOG_ProcessarArquivoTest, T27_ArquivoInexistente) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 30: Merge com terceiro arquivo do mesmo nome em outro diretório
+// Objetivo: Simula o cenário do enunciado: log1.txt de f:\logs\ é processado
+//           após c:\logs\ e o total deve ter todos os registros ordenados.
+// Passa quando: arquivo total tem 5 registros ordenados
+// ---------------------------------------------------------------------------
+TEST(LOG_ProcessarArquivoTest, T30_MergeComTerceiroArquivo) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
