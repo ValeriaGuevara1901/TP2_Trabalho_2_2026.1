@@ -527,7 +527,25 @@ TEST(LOG_LerArquivoLogTest, T23_ArquivoComLinhasMistas) {
 // Passa quando: registros relidos são iguais aos escritos
 // ---------------------------------------------------------------------------
 TEST(LOG_EscreverArquivoLogTest, T24_EscritaReleitura) {
-    // TODO: implementar teste
+    const std::string caminho = "test_escrita.txt";
+
+    RegistroLog r1 = {16, 1, 2026, 13, 27, 46, "mensagem um"};
+    RegistroLog r2 = {20, 1, 2026, 17, 45, 38, "mensagem dois"};
+    std::vector<RegistroLog> registros = {r1, r2};
+
+    bool ok = LOG_EscreverArquivoLog(caminho, registros);
+    EXPECT_TRUE(ok) << "Escrita deve retornar true";
+
+    ASSERT_TRUE(ArquivoExiste(caminho))
+        << "Arquivo deve existir após escrita";
+
+    auto relidos = LOG_LerArquivoLog(caminho);
+    ASSERT_EQ(relidos.size(), 2u)
+        << "Deve reler exatamente 2 registros";
+    EXPECT_EQ(relidos[0].dia, 16);
+    EXPECT_EQ(relidos[1].dia, 20);
+
+    RemoverArquivo(caminho);
 }
 
 
