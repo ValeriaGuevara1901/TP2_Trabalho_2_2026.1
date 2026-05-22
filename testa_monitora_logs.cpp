@@ -363,7 +363,27 @@ TEST(LOG_CompararRegistrosTest, T15_MaisNovoMaior) {
 // Passa quando: resultado tem tamanho = soma dos tamanhos, ordenado
 // ---------------------------------------------------------------------------
 TEST(LOG_MergeOrdenadoTest, T16_MergeDoisVetores) {
-    // TODO: implementar teste
+    RegistroLog r1 = {16, 1, 2026, 13, 27, 46, "log antigo 1"};
+    RegistroLog r2 = {20, 1, 2026, 17, 45, 38, "log antigo 2"};
+    RegistroLog r3 = {17, 1, 2026, 14, 17, 46, "log novo 1"};
+    RegistroLog r4 = {21, 1, 2026, 18, 55, 38, "log novo 2"};
+
+    std::vector<RegistroLog> base  = {r1, r2};
+    std::vector<RegistroLog> novos = {r3, r4};
+
+    auto resultado = LOG_MergeOrdenado(base, novos);
+
+    ASSERT_EQ(resultado.size(), 4u)
+        << "Merge de 2+2 deve ter 4 registros";
+
+    // Verifica ordem crescente
+    for (size_t i = 1; i < resultado.size(); ++i) {
+        EXPECT_LE(LOG_CompararRegistros(resultado[i-1], resultado[i]), 0)
+            << "Resultado deve estar ordenado (posição " << i << ")";
+    }
+
+    // Verifica que o primeiro é o mais antigo (16/1/2026)
+    EXPECT_EQ(resultado[0].dia, 16) << "Primeiro registro deve ser 16/1/2026";
 }
 
 // ---------------------------------------------------------------------------
@@ -372,7 +392,15 @@ TEST(LOG_MergeOrdenadoTest, T16_MergeDoisVetores) {
 // Passa quando: resultado == novos
 // ---------------------------------------------------------------------------
 TEST(LOG_MergeOrdenadoTest, T17_BaseVazia) {
-    // TODO: implementar teste
+    RegistroLog r = {18, 1, 2026, 11, 34, 21, "unico log"};
+    std::vector<RegistroLog> base;
+    std::vector<RegistroLog> novos = {r};
+
+    auto resultado = LOG_MergeOrdenado(base, novos);
+
+    ASSERT_EQ(resultado.size(), 1u)
+        << "Merge com base vazia deve retornar apenas os novos";
+    EXPECT_EQ(resultado[0].dia, 18);
 }
 
 // ---------------------------------------------------------------------------
@@ -381,7 +409,15 @@ TEST(LOG_MergeOrdenadoTest, T17_BaseVazia) {
 // Passa quando: resultado == base
 // ---------------------------------------------------------------------------
 TEST(LOG_MergeOrdenadoTest, T18_NovosVazios) {
-    // TODO: implementar teste
+    RegistroLog r = {16, 1, 2026, 13, 27, 46, "existente"};
+    std::vector<RegistroLog> base  = {r};
+    std::vector<RegistroLog> novos;
+
+    auto resultado = LOG_MergeOrdenado(base, novos);
+
+    ASSERT_EQ(resultado.size(), 1u)
+        << "Merge sem novos deve manter apenas os registros base";
+    EXPECT_EQ(resultado[0].dia, 16);
 }
 
 
