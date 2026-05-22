@@ -81,7 +81,22 @@ static bool ArquivoExiste(const std::string& caminho) {
 // Passa quando: pNumASCII[0] == '-' e demais dígitos corretos
 // ---------------------------------------------------------------------------
 TEST(BCD_ConverterLongASCIITest, T1_NumeroNegativoSuficiente) {
-//teste que deve falhar primeiro
+    char buffer[20];
+    char* resultado = BCD_ConverterLongASCII(20, buffer, -12345L);
+
+    ASSERT_NE(resultado, nullptr)
+        << "Função deve retornar ponteiro não-nulo para entrada válida";
+
+    EXPECT_EQ(resultado[0], '-')
+        << "Primeiro caractere deve ser '-' para número negativo";
+
+    // Verifica contra expressão regular RE1: ^-\d+$
+    std::regex re("^-[0-9]+$");
+    EXPECT_TRUE(std::regex_match(std::string(resultado), re))
+        << "Resultado deve casar com RE1 (^-\\d+$): " << resultado;
+
+    EXPECT_STREQ(resultado, "-12345")
+        << "Valor convertido deve ser '-12345'";
 }
 
 // ===========================================================================
