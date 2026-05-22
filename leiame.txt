@@ -1,0 +1,76 @@
+================================================================================
+         SISTEMA DE MONITORAMENTO DE LOGS - INSTRUÇÕES DE COMPILAÇÃO
+================================================================================
+Disciplina: Técnicas de Programação 2 – CIC0198 – UnB
+Semestre: 2026.1
+================================================================================
+
+REQUISITOS
+----------
+- Compilador C++ com suporte a C++14 (g++ recomendado)
+- Google Test (gtest) instalado
+- Make (para usar o Makefile)
+- Doxygen (opcional, para gerar documentação)
+- gcov (opcional, para cobertura de código)
+
+ARQUIVOS DO PROJETO
+-------------------
+- monitora_logs.hpp    : Arquivo de cabeçalho com declarações
+- monitora_logs.cpp    : Implementação das funções
+- testa_monitora_logs.cpp : Testes unitários (Google Test)
+- Makefile             : Automatização da compilação
+- Doxyfile             : Configuração do Doxygen
+- logs.txt             : Lista de arquivos de log a monitorar
+- exemplo_log1.txt     : Exemplo de arquivo de log
+
+COMPILAÇÃO
+----------
+
+1. USANDO MAKE (RECOMENDADO):
+
+   make              # Compila o executável de testes
+   make test         # Compila e executa os testes
+   make coverage     # Gera relatório de cobertura (gcov)
+   make docs         # Gera documentação Doxygen em docs/html/
+   make clean        # Remove arquivos gerados
+   make lint         # Executa verificação de estilo (cpplint)
+   make check        # Executa análise estática (cppcheck)
+
+2. COMPILAÇÃO MANUAL:
+
+   g++ -std=c++14 -Wall -Wextra -pedantic -g \
+       monitora_logs.cpp testa_monitora_logs.cpp \
+       -o testa_monitora_logs \
+       -lgtest -lgtest_main -lpthread
+
+EXECUÇÃO DOS TESTES
+-------------------
+Após compilar:
+
+   ./testa_monitora_logs        (Linux/Mac)
+   .\testa_monitora_logs.exe    (Windows)
+
+GERAÇÃO DE DOCUMENTAÇÃO
+-----------------------
+Com Doxygen instalado:
+
+   doxygen Doxyfile
+
+A documentação HTML será gerada em: docs/html/index.html
+
+ESTRUTURA DO CÓDIGO
+-------------------
+O sistema implementa as seguintes funções:
+
+- BCD_ConverterLongASCII  : Converte inteiro para string ASCII
+- LOG_LerArquivosMonitorados : Lê lista de arquivos a monitorar
+- LOG_ParseLinha          : Interpreta linha de log
+- LOG_ObterNomeArquivoTotal : Gera nome do arquivo consolidado
+- LOG_CompararRegistros   : Compara registros por data/hora
+- LOG_MergeOrdenado       : Combina e ordena registros
+- LOG_LerArquivoLog       : Lê arquivo de log
+- LOG_EscreverArquivoLog  : Escreve arquivo de log
+- LOG_ProcessarArquivo    : Processa um arquivo de log
+- LOG_MonitorarLogs       : Função principal de monitoramento
+
+================================================================================
