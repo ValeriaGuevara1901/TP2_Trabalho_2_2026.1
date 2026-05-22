@@ -135,5 +135,19 @@ std::vector<RegistroLog> LOG_MergeOrdenado(
  ***************************************************************************/
 std::vector<RegistroLog> LOG_LerArquivoLog(const std::string& caminhoLog);
 
+/***************************************************************************
+ * Função: LOG_EscreverArquivoLog
+ * Descrição
+ *   Escreve um vetor de registros de log em um arquivo, no formato
+ *   "DD/MM/AAAA HH:MM:SS mensagem".
+ * Parâmetros
+ *   caminhoLog - caminho do arquivo a escrever
+ *   registros  - vetor de registros a escrever
+ * Valor retornado
+ *   true se a escrita foi bem-sucedida, false caso contrário
+ ***************************************************************************/
+bool LOG_EscreverArquivoLog(const std::string& caminhoLog,
+                            const std::vector<RegistroLog>& registros);
+
 
 #endif  // MONITORA_LOGS_HPP_

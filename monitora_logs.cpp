@@ -17,6 +17,7 @@
 #include <cstdio>
 #include <cstring>
 #include <fstream>
+#include <iomanip>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -217,4 +218,27 @@ std::vector<RegistroLog> LOG_LerArquivoLog(const std::string& caminhoLog) {
 
     arquivo.close();
     return registros;
+}
+
+// ---------------------------------------------------------------------------
+// LOG_EscreverArquivoLog
+// ---------------------------------------------------------------------------
+
+bool LOG_EscreverArquivoLog(const std::string& caminhoLog,
+                            const std::vector<RegistroLog>& registros) {
+    std::ofstream arquivo(caminhoLog);
+    if (!arquivo.is_open()) {
+        return false;
+    }
+
+    for (const auto& reg : registros) {
+        arquivo << reg.dia << "/" << reg.mes << "/" << reg.ano << " "
+                << std::setfill('0') << std::setw(2) << reg.hora << ":"
+                << std::setfill('0') << std::setw(2) << reg.minuto << ":"
+                << std::setfill('0') << std::setw(2) << reg.segundo << " "
+                << reg.mensagem << "\n";
+    }
+
+    arquivo.close();
+    return true;
 }
