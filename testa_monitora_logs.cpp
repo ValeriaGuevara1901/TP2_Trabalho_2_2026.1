@@ -430,7 +430,21 @@ TEST(LOG_MergeOrdenadoTest, T18_NovosVazios) {
 // Passa quando: vetor contém exatamente os caminhos do arquivo
 // ---------------------------------------------------------------------------
 TEST(LOG_LerArquivosMonitoradosTest, T19_ArquivoValido) {
-    // TODO: implementar teste
+    const std::string caminho = "test_logs.txt";
+    CriarArquivoTemp(caminho,
+        "c:\\logs\\log1.txt\n"
+        "c:\\logs\\log2.txt\n"
+        "f:\\logs\\log1.txt\n");
+
+    auto lista = LOG_LerArquivosMonitorados(caminho);
+
+    ASSERT_EQ(lista.size(), 3u)
+        << "Deve ler exatamente 3 entradas do arquivo";
+    EXPECT_EQ(lista[0], "c:\\logs\\log1.txt");
+    EXPECT_EQ(lista[1], "c:\\logs\\log2.txt");
+    EXPECT_EQ(lista[2], "f:\\logs\\log1.txt");
+
+    RemoverArquivo(caminho);
 }
 
 // ---------------------------------------------------------------------------
@@ -439,7 +453,10 @@ TEST(LOG_LerArquivosMonitoradosTest, T19_ArquivoValido) {
 // Passa quando: retorna vetor vazio (sem crash)
 // ---------------------------------------------------------------------------
 TEST(LOG_LerArquivosMonitoradosTest, T20_ArquivoInexistente) {
-    // TODO: implementar teste
+    auto lista = LOG_LerArquivosMonitorados("arquivo_que_nao_existe_xyz.txt");
+
+    EXPECT_TRUE(lista.empty())
+        << "Arquivo inexistente deve retornar lista vazia";
 }
 
 
