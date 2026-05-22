@@ -36,5 +36,20 @@ char* BCD_ConverterLongASCII(int dimASCII,
         return NULL;
     }
 
+    // Converte para string usando snprintf (seguro)
+    char buffer[64];
+    snprintf(buffer, sizeof(buffer), "%ld", Numero);
+
+    // Copia com truncagem à direita se necessário
+    int tamanho = static_cast<int>(strlen(buffer));
+    int copiar = (tamanho < dimASCII - 1) ? tamanho : dimASCII - 1;
+    strncpy(pNumASCII, buffer, copiar);
+    pNumASCII[copiar] = '\0';
+
+    // Assertiva de saída: primeiro char é '-' sse Numero < 0
+    assert((Numero < 0) ? (pNumASCII[0] == '-') : (pNumASCII[0] != '-'));
+    // Assertiva de saída: string terminada em '\0'
+    assert(pNumASCII[copiar] == '\0');
+
     return pNumASCII;
 }
