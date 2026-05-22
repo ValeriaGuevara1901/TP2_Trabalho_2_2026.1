@@ -353,6 +353,37 @@ TEST(LOG_CompararRegistrosTest, T15_MaisNovoMaior) {
         << "Registro mais novo deve ser maior";
 }
 
+// ===========================================================================
+// TESTES — LOG_MergeOrdenado
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 16: Merge de dois vetores ordenados distintos
+// Objetivo: Verifica que o merge produz resultado ordenado por data/hora.
+// Passa quando: resultado tem tamanho = soma dos tamanhos, ordenado
+// ---------------------------------------------------------------------------
+TEST(LOG_MergeOrdenadoTest, T16_MergeDoisVetores) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 17: Merge com vetor base vazio
+// Objetivo: Verifica que merge funciona quando não há registros existentes.
+// Passa quando: resultado == novos
+// ---------------------------------------------------------------------------
+TEST(LOG_MergeOrdenadoTest, T17_BaseVazia) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 18: Merge com vetor novos vazio
+// Objetivo: Verifica que merge não altera base quando não há novos logs.
+// Passa quando: resultado == base
+// ---------------------------------------------------------------------------
+TEST(LOG_MergeOrdenadoTest, T18_NovosVazios) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
