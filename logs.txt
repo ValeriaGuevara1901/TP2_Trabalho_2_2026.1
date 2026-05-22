@@ -1,0 +1,4 @@
+c:\logs\log1.txt
+c:\logs\log2.txt
+c:\logs\log3.txt
+f:\logs\log1.txt
