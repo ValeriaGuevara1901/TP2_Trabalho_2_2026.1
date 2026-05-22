@@ -253,6 +253,47 @@ TEST(LOG_ParseLinhaTest, T8_DataInvalida) {
         << "Data inválida (dia=0, mês=13) deve retornar false";
 }
 
+// ===========================================================================
+// TESTES — LOG_ObterNomeArquivoTotal
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 9: Nome total para caminho com separador barra invertida (Windows)
+// Objetivo: Verifica que "total_" é prefixado corretamente no nome do arquivo.
+// Expressão Regular RE3: resultado deve casar com .*total_.*
+// Passa quando: nome do arquivo resultante começa com "total_"
+// ---------------------------------------------------------------------------
+TEST(LOG_ObterNomeArquivoTotalTest, T9_CaminhoComBarra) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 10: Nome total para caminho com barra normal (Unix/relativo)
+// Objetivo: Verifica funcionamento com separador '/'.
+// Passa quando: resultado correto com prefixo "total_"
+// ---------------------------------------------------------------------------
+TEST(LOG_ObterNomeArquivoTotalTest, T10_CaminhoComBarraNormal) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 11: Caminho apenas com nome do arquivo (sem diretório)
+// Objetivo: Verifica que funciona sem diretório no caminho.
+// Passa quando: resultado é "total_nomearquivo"
+// ---------------------------------------------------------------------------
+TEST(LOG_ObterNomeArquivoTotalTest, T11_SemDiretorio) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 12: Caminho mínimo válido
+// Objetivo: Verifica retorno seguro para entrada mínima válida.
+// Passa quando: retorna "total_x" para entrada "x"
+// ---------------------------------------------------------------------------
+TEST(LOG_ObterNomeArquivoTotalTest, T12_CaminhoMinimo) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
