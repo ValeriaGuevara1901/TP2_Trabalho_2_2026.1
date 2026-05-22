@@ -271,3 +271,32 @@ bool LOG_ProcessarArquivo(const std::string& caminhoLog) {
     // Escreve o resultado no arquivo total
     return LOG_EscreverArquivoLog(caminhoTotal, resultado);
 }
+
+// ---------------------------------------------------------------------------
+// LOG_MonitorarLogs
+// ---------------------------------------------------------------------------
+
+int LOG_MonitorarLogs(const std::string& caminhoConfig) {
+    // Lê a lista de arquivos a monitorar
+    auto arquivos = LOG_LerArquivosMonitorados(caminhoConfig);
+
+    // Verifica se o arquivo de configuração existe
+    if (arquivos.empty()) {
+        std::ifstream teste(caminhoConfig);
+        if (!teste.is_open()) {
+            return -1;  // Arquivo de configuração não existe
+        }
+        teste.close();
+        return 0;  // Arquivo existe mas está vazio
+    }
+
+    // Processa cada arquivo
+    int processados = 0;
+    for (const auto& arquivo : arquivos) {
+        if (LOG_ProcessarArquivo(arquivo)) {
+            processados++;
+        }
+    }
+
+    return processados;
+}

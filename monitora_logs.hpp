@@ -161,5 +161,18 @@ bool LOG_EscreverArquivoLog(const std::string& caminhoLog,
  ***************************************************************************/
 bool LOG_ProcessarArquivo(const std::string& caminhoLog);
 
+/***************************************************************************
+ * Função: LOG_MonitorarLogs
+ * Descrição
+ *   Lê a lista de arquivos a monitorar do arquivo de configuração e
+ *   processa cada um deles.
+ * Parâmetros
+ *   caminhoConfig - caminho do arquivo de configuração (logs.txt)
+ * Valor retornado
+ *   Número de arquivos processados com sucesso, ou -1 se o arquivo
+ *   de configuração não existir.
+ ***************************************************************************/
+int LOG_MonitorarLogs(const std::string& caminhoConfig);
+
 
 #endif  // MONITORA_LOGS_HPP_
