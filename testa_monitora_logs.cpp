@@ -99,6 +99,17 @@ TEST(BCD_ConverterLongASCIITest, T1_NumeroNegativoSuficiente) {
         << "Valor convertido deve ser '-12345'";
 }
 
+// ---------------------------------------------------------------------------
+// TESTE 2 (T2): Número positivo com dimASCII suficiente
+// Objetivo: Verifica que número positivo é convertido sem sinal '-'.
+// Tabela de Decisão: Coluna T2 (Numero<0=N, dimASCII suficiente=S)
+// Expressão Regular RE1: resultado deve casar com ^\d+$
+// Passa quando: resultado é string de dígitos sem '-'
+// ---------------------------------------------------------------------------
+TEST(BCD_ConverterLongASCIITest, T2_NumeroPositivoSuficiente) {
+// testes 2 falhando
+}
+
 // ===========================================================================
 // main
 // ===========================================================================
