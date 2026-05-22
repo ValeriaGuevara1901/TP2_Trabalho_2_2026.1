@@ -420,6 +420,28 @@ TEST(LOG_MergeOrdenadoTest, T18_NovosVazios) {
     EXPECT_EQ(resultado[0].dia, 16);
 }
 
+// ===========================================================================
+// TESTES — LOG_LerArquivosMonitorados
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 19: Leitura de logs.txt com caminhos válidos
+// Objetivo: Verifica que a lista de arquivos monitorados é lida corretamente.
+// Passa quando: vetor contém exatamente os caminhos do arquivo
+// ---------------------------------------------------------------------------
+TEST(LOG_LerArquivosMonitoradosTest, T19_ArquivoValido) {
+    // TODO: implementar teste
+}
+
+// ---------------------------------------------------------------------------
+// TESTE 20: Arquivo logs.txt inexistente
+// Objetivo: Verifica retorno seguro quando o arquivo não existe.
+// Passa quando: retorna vetor vazio (sem crash)
+// ---------------------------------------------------------------------------
+TEST(LOG_LerArquivosMonitoradosTest, T20_ArquivoInexistente) {
+    // TODO: implementar teste
+}
+
 
 // ===========================================================================
 // main
