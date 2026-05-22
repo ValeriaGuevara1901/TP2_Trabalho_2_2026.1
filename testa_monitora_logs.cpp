@@ -246,7 +246,11 @@ TEST(LOG_ParseLinhaTest, T7_LinhaFormatoInvalido) {
 // Passa quando: retorna false
 // ---------------------------------------------------------------------------
 TEST(LOG_ParseLinhaTest, T8_DataInvalida) {
-    // TODO: implementar teste
+    const std::string linha = "0/13/2026 25:61:99 mensagem";
+    RegistroLog reg;
+    bool ok = LOG_ParseLinha(linha, &reg);
+    EXPECT_FALSE(ok)
+        << "Data inválida (dia=0, mês=13) deve retornar false";
 }
 
 
