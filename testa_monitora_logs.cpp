@@ -559,7 +559,34 @@ TEST(LOG_EscreverArquivoLogTest, T24_EscritaReleitura) {
 // Passa quando: arquivo total_ é criado com conteúdo correto
 // ---------------------------------------------------------------------------
 TEST(LOG_ProcessarArquivoTest, T25_ProcessarSemTotalPrevio) {
-    // TODO: implementar teste
+    const std::string caminhoLog   = "log_teste25.txt";
+    const std::string caminhoTotal = "total_log_teste25.txt";
+
+    RemoverArquivo(caminhoLog);
+    RemoverArquivo(caminhoTotal);
+
+    CriarArquivoTemp(caminhoLog,
+        "20/1/2026 17:45:38 Registro B\n"
+        "16/1/2026 13:27:46 Registro A\n");
+
+    bool ok = LOG_ProcessarArquivo(caminhoLog);
+
+    EXPECT_TRUE(ok) << "Processamento deve retornar true";
+    EXPECT_TRUE(ArquivoExiste(caminhoTotal))
+        << "Arquivo total_ deve ser criado";
+
+    auto resultado = LOG_LerArquivoLog(caminhoTotal);
+    ASSERT_EQ(resultado.size(), 2u)
+        << "Arquivo total deve conter 2 registros";
+
+    // Verifica ordenação
+    EXPECT_LE(LOG_CompararRegistros(resultado[0], resultado[1]), 0)
+        << "Registros devem estar ordenados por data/hora";
+    EXPECT_EQ(resultado[0].dia, 16)
+        << "Primeiro registro deve ser o mais antigo (16/1)";
+
+    RemoverArquivo(caminhoLog);
+    RemoverArquivo(caminhoTotal);
 }
 
 // ---------------------------------------------------------------------------
@@ -569,7 +596,37 @@ TEST(LOG_ProcessarArquivoTest, T25_ProcessarSemTotalPrevio) {
 // Passa quando: arquivo total contém todos os registros ordenados
 // ---------------------------------------------------------------------------
 TEST(LOG_ProcessarArquivoTest, T26_ProcessarComTotalPrevio) {
-    // TODO: implementar teste
+    const std::string caminhoLog   = "log_teste26.txt";
+    const std::string caminhoTotal = "total_log_teste26.txt";
+
+    RemoverArquivo(caminhoLog);
+    RemoverArquivo(caminhoTotal);
+
+    // Total prévio tem registros de 17 e 21
+    CriarArquivoTemp(caminhoTotal,
+        "17/1/2026 14:17:46 Registro total 1\n"
+        "21/1/2026 18:55:38 Registro total 2\n");
+
+    // Novo log tem registros de 16 e 20 (devem ser intercalados)
+    CriarArquivoTemp(caminhoLog,
+        "16/1/2026 13:27:46 Registro novo 1\n"
+        "20/1/2026 17:45:38 Registro novo 2\n");
+
+    bool ok = LOG_ProcessarArquivo(caminhoLog);
+    EXPECT_TRUE(ok) << "Processamento com merge deve retornar true";
+
+    auto resultado = LOG_LerArquivoLog(caminhoTotal);
+    ASSERT_EQ(resultado.size(), 4u)
+        << "Merge deve resultar em 4 registros";
+
+    // Verifica ordem: 16, 17, 20, 21
+    EXPECT_EQ(resultado[0].dia, 16) << "1º = 16/1";
+    EXPECT_EQ(resultado[1].dia, 17) << "2º = 17/1";
+    EXPECT_EQ(resultado[2].dia, 20) << "3º = 20/1";
+    EXPECT_EQ(resultado[3].dia, 21) << "4º = 21/1";
+
+    RemoverArquivo(caminhoLog);
+    RemoverArquivo(caminhoTotal);
 }
 
 // ---------------------------------------------------------------------------
@@ -579,7 +636,9 @@ TEST(LOG_ProcessarArquivoTest, T26_ProcessarComTotalPrevio) {
 // Passa quando: retorna false sem crash
 // ---------------------------------------------------------------------------
 TEST(LOG_ProcessarArquivoTest, T27_ArquivoInexistente) {
-    // TODO: implementar teste
+    bool ok = LOG_ProcessarArquivo("log_que_nao_existe_xyz.txt");
+    EXPECT_FALSE(ok)
+        << "Arquivo inexistente deve retornar false";
 }
 
 // ---------------------------------------------------------------------------
@@ -589,7 +648,45 @@ TEST(LOG_ProcessarArquivoTest, T27_ArquivoInexistente) {
 // Passa quando: arquivo total tem 5 registros ordenados
 // ---------------------------------------------------------------------------
 TEST(LOG_ProcessarArquivoTest, T30_MergeComTerceiroArquivo) {
-    // TODO: implementar teste
+    const std::string logA   = "logA_t30.txt";
+    const std::string total  = "total_logA_t30.txt";
+    const std::string logB   = "logB_t30.txt";
+    const std::string totalB = "total_logB_t30.txt";
+
+    RemoverArquivo(logA); RemoverArquivo(total);
+    RemoverArquivo(logB); RemoverArquivo(totalB);
+
+    // Primeiro processamento
+    CriarArquivoTemp(logA,
+        "16/1/2026 13:27:46 log A reg 1\n"
+        "20/1/2026 17:45:38 log A reg 2\n");
+    LOG_ProcessarArquivo(logA);
+
+    // Simula total existente com registros extras
+    CriarArquivoTemp(total,
+        "16/1/2026 13:27:46 log A reg 1\n"
+        "17/1/2026 14:17:46 outro log total\n"
+        "20/1/2026 17:45:38 log A reg 2\n"
+        "21/1/2026 18:55:38 outro log total 2\n");
+
+    // Segundo processamento com novo registro
+    CriarArquivoTemp(logA,
+        "18/1/2026 11:34:21 log B novo\n");
+    LOG_ProcessarArquivo(logA);
+
+    auto resultado = LOG_LerArquivoLog(total);
+
+    ASSERT_EQ(resultado.size(), 5u)
+        << "Devem existir 5 registros após merge final";
+
+    // Verifica ordenação
+    for (size_t i = 1; i < resultado.size(); ++i) {
+        EXPECT_LE(LOG_CompararRegistros(resultado[i-1], resultado[i]), 0)
+            << "Resultado deve estar ordenado (posição " << i << ")";
+    }
+
+    RemoverArquivo(logA); RemoverArquivo(total);
+    RemoverArquivo(logB); RemoverArquivo(totalB);
 }
 
 
