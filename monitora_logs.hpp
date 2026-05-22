@@ -63,5 +63,21 @@ char* BCD_ConverterLongASCII(int dimASCII,
                               char* pNumASCII,
                               long Numero);
 
+/***************************************************************************
+ * Função: LOG_LerArquivosMonitorados
+ * Descrição
+ *   Lê o arquivo logs.txt e retorna a lista de caminhos dos arquivos
+ *   de log a serem monitorados.
+ * Parâmetros
+ *   caminhoArquivosLogs - caminho para o arquivo logs.txt
+ * Valor retornado
+ *   Vetor de strings com os caminhos dos arquivos monitorados.
+ *   Vetor vazio se o arquivo não existir ou estiver vazio.
+ * Assertiva de entrada
+ *   caminhoArquivosLogs != NULL (string não vazia)
+ ***************************************************************************/
+std::vector<std::string> LOG_LerArquivosMonitorados(
+    const std::string& caminhoArquivosLogs);
+
 
 #endif  // MONITORA_LOGS_HPP_

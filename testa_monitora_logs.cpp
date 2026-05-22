@@ -184,6 +184,23 @@ TEST(BCD_ConverterLongASCIITest, T5_Zero) {
         << "Zero não deve iniciar com '-'";
 }
 
+// ===========================================================================
+// TESTES — LOG_ParseLinha
+// ===========================================================================
+
+// ---------------------------------------------------------------------------
+// TESTE 6 (T6): Linha com formato válido
+// Objetivo: Verifica que uma linha de log bem formatada é parseada
+//           corretamente, preenchendo todos os campos da estrutura.
+// Tabela de Decisão: Coluna T6 (Linha formato válido=S)
+// Expressão Regular RE2: ^\d{1,2}\/\d{1,2}\/\d{4} \d{2}:\d{2}:\d{2} .+$
+// Passa quando: retorna true e campos corretos
+// ---------------------------------------------------------------------------
+TEST(LOG_ParseLinhaTest, T6_LinhaFormatoValido) {
+   //Teste sete sem nada teste 6
+}
+
+
 
 // ===========================================================================
 // main

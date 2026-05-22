@@ -53,3 +53,13 @@ char* BCD_ConverterLongASCII(int dimASCII,
 
     return pNumASCII;
 }
+
+// ---------------------------------------------------------------------------
+// LOG_LerArquivosMonitorados
+// ---------------------------------------------------------------------------
+
+std::vector<std::string> LOG_LerArquivosMonitorados(
+        const std::string& caminhoArquivosLogs) {
+    //funcao sem nada
+}
+
